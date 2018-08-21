@@ -1,0 +1,1306 @@
+C:\Users\Assaf\Anaconda3\python.exe C:/Users/Assaf/PycharmProjects/GaTest/FindMatches/find_matches.py
+Number of matches is: 6986
+Printing mismatches for keys:  ['p1.hotel_name', 'p2.hotel_name']  number of mismatches: 546
+                                         p1.hotel_name                                      p2.hotel_name
+1                                    Full House Resort                                   Fullhouse Resort
+2                    Ondas Do Mar Beach Resort Phase 1                 Ondas Do Mar Beach Resort Phase -1
+3    7 Days Inn Guangzhou Baiyun Yongtai Metro 2nd ...  7Days Inn Guangzhou Baiyun Yongtai Subway Stat...
+5                                  Pension Flying Sumo                           Flying Sumo Surf Company
+10                         Inn The City Business Hotel                                 Inn The City Hotel
+11                                      Khumsuk Resort                                     Khamsuk Resort
+12                                Foshan Baolong Hotel                 Foshan Baolong International Hotel
+13                                       Irokan Ryokan                                            Iroukan
+14                                     Park Wood Hotel                    Park Wood Hotel - Academgorodok
+15                              Ibiza Kenting Hotel II                              Ibizakenting Hotel II
+20                                        Page 3 Lodge                                        Page3 Lodge
+22                    The Dhara Dhevi Hotel Chiang Mai                         The Dhara Dhevi Chiang Mai
+25                               Condor's House Hostel                                     Condor's House
+26                                     Dong Fang Hotel                            Dong Fang Hotel Beijing
+27                        Atamionsen Yuyado Ichibanchi                        Atamionsen Yuyadoichibanchi
+28                       Mowbray by the Sea Apartments                                 Mowbray By The Sea
+29                Benjoy Hotel Shanghai Jinqiao Branch                      Benjoy Hotel - Jinqiao Branch
+30                                 Bayswell Park Hotel                          Bayswell Park Hotel & Spa
+33                              Caribbean Noosa Resort                                    Caribbean Noosa
+34              Chengdu Nine Point International Hotel             Nine Point International Hotel Chengdu
+37                                Hotel Shiga Sunvally                  Shiga Kogen Hotel Shiga Sunvalley
+39                                         Rodeway Inn                             Rodeway Inn Livingston
+40                                         Rodeway Inn                           Rodeway Inn Central City
+41                           Campanile Compiegne Hotel                          Campanile Hotel Compiegne
+43                                Hostel El Lechuguero                               Hostal El Lechuguero
+46                        Hotel Dreamtel Kota Kinabalu                             Dreamtel Kota Kinabalu
+48                                     F Hotel Hualien                                  F Hotel - Hualien
+49                              Hotel Folkestone Opera                Best Western Hôtel Folkestone Opéra
+53                                 Time Travel Pension                           Jeju Time-Travel Pension
+55                                Hibiscus Beach Hotel                      Hibiscus Beach Hotel & Villas
+57             7 Days Inn Hefei Railway Station Branch                    7Days Inn Hefei Railway Station
+58                  Manahara Casa Hotel and Restaurant                   Manahara Casa Hotel & Restaurant
+59                   Monzi Safaris Luxury Tented Camps                         Monzi Safaris Tented Lodge
+63    Balmain Furnished Apartments 704 Margaret Street  Balmain Self-Contained Modern One-Bedroom Apar...
+64   7 Days Inn Wuhan Hankou Railway Station Second...      7Days Inn WuHan HanKou Railway Station Second
+65            Nirvana Holiday Homes - Marina Diamond 4            Nirvana Holiday Home - Marina Diamond 4
+67               Apollo Weekly Apartment at Juso Cosmo                   Apollo Weekly Juso Station Osaka
+69             Peermont Metcourt at Frontier Bethlehem           Peermont Metcourt at Frontier, Bethlehem
+70                           Al Nabarees Al Raqi Hotel                Al Nabarees Al Raqi Furnished Units
+71                                    Bakeroom1 Hostel                                          Bake Room
+73                                Even Suites by Spree                     Even Suites - Managed by Spree
+77                                    Garden Inn No.52                                    Garden In No.52
+81                                Guest House Bye Rome                                Bye Rome Guesthouse
+85                    HOTEL MYSTAYS Sakaisuji-Honmachi                   HOTEL MYSTAYS Sakaisuji Honmachi
+88                     Hilton Orlando Lake Buena Vista  Hilton Orlando Lake Buena Vista - Disney Sprin...
+94                                   The Blue Boar Inn                                      The Blue Boar
+95                                   Tsukuba Daily-Inn                                  Tsukuba Daily Inn
+96                                  Bayview Eden Hotel                             Bayview Eden Melbourne
+97                          Rothbury Escape Guesthouse                                    Rothbury Escape
+98                           Tulips Hotel & Restaurant                                       Hotel Tulips
+99                                     Hotel Noormahal                                   Hotel Noor Mahal
+105                           Campanile Biarritz Hotel                                 Campanile Biarritz
+106                  Hotel Gate in Kagoshima Tenmonkan                  Hotel Gate In Kagoshima Tenmonkan
+108  Sleep Inn and Suites Wildwood The Villages Wil...                      Sleep Inn & Suites - Wildwood
+109                           Nidhivan Sarovar Portico                 Nidhivan Sarovar Portico Vrindavan
+111                           Tiras Patong Beach Hotel                           TIRAS Patong Beach Hotel
+113                                Aree's Lagoon B & B                                Aree's Lagoon House
+114                     Ilunion Puerta de Triana Hotel                           Ilunion Puerta de Triana
+115                        Vacation Home Oceana Marina                                      Oceana Marina
+116            Diwan Restaurant and Apartments Pvt LTD    Apartment Diwan restaurant & Apartments Pvt Ltd
+117                                 @Samui Haus Resort                                        @Samui Haus
+118                     Oyo Rooms - Cyber City Oakwood                       OYO Rooms Cyber City Oakwood
+119                   7 Days Inn Emei Haochijie Branch                                 7Days Inn Mt. Emei
+121               Atlantis Condo Resort Pattaya By ACC          Atlantis Condo Resort Pattaya by Kulisara
+122  Hanting Hotel Shenzhen Sea World Merchants Roa...  Hanting Express Shenzhen Hai Shang Shi Jie Zha...
+126                         Tsing House Olympic Center                 Tsing House Olympic Sailing Centre
+128  Green Tree Inn Zibo Liuquan Road Wal-mart Squa...  GreenTree Inn ZiBo LiuQuan Road Wal-Mart Squar...
+129  GreenTree Inn Eastern Yancheng Administration ...  GreenTree Eastern JiangSu Yancheng Administrat...
+133                Xishuangbanna Boliheng Youth Hostel                      Boliheng International Hostel
+134         Homeinns Plus Wangda Subway Station Suzhou   Home Inn Plus Suzhou Wanda Plaza Railway Station
+135                          Budi house & food station                          Budi House & Food Station
+137                                  Garden Guesthouse                          Thongchaleaune Guesthouse
+138                     Vessel Hotel Higashi-Hiroshima                     Vessel Hotel Higashi Hiroshima
+139                                  The Elegant Lodge                       The Elegant Lodge Menlo Park
+145                        Poonsap Apartment Koh Lanta                                  Poonsap Apartment
+146                      Campanile Paris Est - Bobigny                        Campanile Paris Est Bobigny
+147                            Millenia Suites Ortigas                           Goldland Millenia Suites
+151            Murray Gardens Country Cottages & Motel                    Murray Gardens Cottages & Motel
+152                            Hanoi New Century Hotel                                  New Century Hotel
+153                               Oaks On Market Hotel                                     Oaks On Market
+155                               HF Fenix Porto Hotel                                     HF Fenix Porto
+156          Mango Hotels - Bangalore – Koramangala II            Mango Hotels, Bangalore- Koramangala II
+159                      Clarks Exotica Resort and Spa                        Clarks Exotica Resort & Spa
+161                            Hotel Sevastopol Modern                                  Sevastopol Modern
+162                                        Econo Lodge             Econo Lodge Belton - Kansas City South
+163                                        Comfort Inn                             Comfort Inn Toms River
+166                              Sasebo Dai-Ichi Hotel                               Sasebo Daiichi Hotel
+167                                      The Donatello                                The Donatello Hotel
+168            Comfort Inn Near Vail Beaver Creek Avon                      Comfort Inn Vail Beaver Creek
+169                         Econo Lodge Inn and Suites             Econo Lodge Inn & Suites Gilbertsville
+173                                   Lugogo Sun Hotel                                         Lugogo Sun
+174                     ibis Moscow Centre Bakhrushina                     Ibis Moscow Centre Bakhrushina
+175                                   Villa Moonshadow             Villa Moonshadow - Award Winning Villa
+177                           Les Jardins de la Medina                           Les Jardins De La Médina
+179                                      Cheviot Hotel                                  The Cheviot Hotel
+183      AC Hotel by Marriott Paris Le Bourget Airport                  AC Hotel Paris Le Bourget Airport
+184                              Hotel Vikrant - Kullu                                      Hotel Vikrant
+185                                Subang Valley Hotel                                      Subang Valley
+186                    Hanting Hotel Shenzhen Mix City             Hanting Express Shenzhen Wanxiang Mall
+187                  Hanting Hotel Yiwu Binwang Branch                     Hanting Express Yiwu Bing wang
+188                    Hi Inn Shenzhen Huaqiang Branch                           Hi Inn Shenzhen Huaqiang
+189                         Anchor On Collins Sapphire                         Anchor on Collins Sapphire
+190                                 Parinyas Apartment                                Parinya's Apartment
+191            Jinjiang Inn Yixing Middle Renming Road  Jinjiang Inn Yixing Middle Renmin Road Pedestrain
+192                            Yangsho Sunvalley Hotel                          Yangshuo 520 Dream Hostel
+196                                Cha-Am Pool Station                                Cha-am Pool Station
+197                      Private Bungalow In Mauritius                          Belle Mare Beach Bungalow
+201                                 Don Chan Residence                                  Donchan Residence
+202                                          come inn2                                  Kenting Come Inn2
+206                                 Imperial Hotel Hue                                 Imperial Hue Hotel
+208                             Copenhagen Plaza Hotel                                   Copenhagen Plaza
+209                          Ciputra Golf Club & Hotel                         Ciputra Golf, Club & Hotel
+210                       Lindner Hotel and Spa Ruegen                          Lindner Hotel & Spa Rügen
+211                              Hotel Re Pearl's Hill                           Hotel Re! @ Pearl's Hill
+212             Petersons Armidale Winery & Guesthouse           Petersons Armidale Winery and Guesthouse
+215                Aspasios Arago Executive Apartments                          AB Aragó Executive Suites
+216         Somersal Bed and Breakfast - Wedding Venue                           Somersal Bed & Breakfast
+219                                   Best Western Inn                       Best Western Inn Monroeville
+222                Best Western Harbour Inn and Suites                Best Western - Harbour Inn & Suites
+225                                  Camelot on Ulster                                  Camelot On Ulster
+226                                      B & B Matinee                                        B&B Matinèe
+227            Hampton Inn Kansas City - Liberty Hotel                    Hampton Inn Kansas City Liberty
+229   Hilton Garden Inn Omaha Downtown Old Market Area   Hilton Garden Inn Omaha Downtown-Old Market Area
+230                   Golden Hopes Group Of Houseboats                   Golden Hopes Group of Houseboats
+231                       Comfort Inn Hotel Sherbrooke                             Comfort Inn Sherbrooke
+232                            The Heron Portico Hotel                                  The Heron Portico
+233                                   Ai Phuket Hostel                            Ai Phuket Hostel & Cafe
+235                         Phoenix Park Hotel & Condo               Phoenix Park The Hotel & Condominium
+237                           Thana Hotel & Guesthouse                                        Thana Hotel
+239                                       Palace Plaza                                 Hotel Palace Plaza
+241                                      Hotel Seifuen                                     Hotel Seifuuen
+249                        Titan Paradise Xiamen Hotel                              Paradise Xiamen Hotel
+254                              Hotel Nova KD Comfort                             Hotel Nova K D Comfort
+255             Flag House Resort (18 Kms From Shimla)                                  Flag House Resort
+260                              Dysart Boutique Hotel                              DysArt Boutique Hotel
+262              Green Tree Inn Dalian Railway Station  GreenTree Inn Liaoning Dalian Railway Station ...
+264                                  Phuc Hung Hotel 1                                    Phuc Hung Hotel
+267                          Hotel du Lion d'Or Louvre                          Hôtel du Lion d'Or Louvre
+268                          MALLVIEW MOTEL GREENSBURG                          Mallview Motel Greensburg
+270              Phoenix Island Resort Apartment Sanya         Phoenix Island Resort Sanya ( Ocean Dream)
+271                  Lexington Rochester Airport Hotel                Lexington Hotel – Rochester Airport
+275                   Die Agterplaas Bed and Breakfast                                 Die Agterplaas B&B
+277                International Minsyuku Kokage Hotel                           International Inn Kokage
+278                                     Comfort Suites                             Comfort Suites Barstow
+280    Hilton Garden Inn Edison - Raritan Center Hotel            Hilton Garden Inn Edison/Raritan Center
+282                              Huachen Holiday Hotel                     Hangzhou Huachen Holiday Hotel
+283                                 The Wallawwa Hotel                                       The Wallawwa
+285                    The Kenilworth Resort & Spa Goa                        Kenilworth Resort & SPA,Goa
+286          Grand Hotel Melbourne MGallery Collection        Grand Hotel Melbourne - MGallery by Sofitel
+288                                   Aron Guest House                                    Aron Guesthouse
+289    Clarion Collection Hotel Arlington Court Suites                       Arlington Court Suites Hotel
+290                                 So Park Apartments                                  SO Park Battersea
+291                            Vivenda Rebelo Homestay                                     Vivenda Rebelo
+295                 Nightingale Falls Farmstay Retreat                Nightingale Falls Farm Stay Retreat
+296  Homewood Suites by Hilton SeattleTacoma Airpor...  Homewood Suites by Hilton Seattle-Tacoma Airpo...
+297                            Comfort Inn Vail Valley                      Comfort Inn Vail Valley/Eagle
+298                                        Quality Inn                           Quality Inn - Coralville
+299                                        Quality Inn                                 Quality Inn Murray
+301                          Ripples on the Bay Resort                                 Ripples on the Bay
+302                        Sofitel Wanda Beijing Hotel                              Sofitel Wanda Beijing
+304                      Paradise Holidays Guest House                                  Paradise Homestay
+305                           Fiesta Palms 5 Apartment                                     Fiesta Palms 5
+306                               Vincci Centrum Hotel                                     Vincci Centrum
+308                          Petit Palace Plaza Malaga                          Petit Palace Plaza Málaga
+313                                     Ngu Binh Hotel                                 Ngu Binh Hue Hotel
+315         Mahattan International Apartment Guangzhou                   Mahattan International Apartment
+318  7 Days Inn Longyan Zhongshan Road Walking Stre...        7Days Inn Longyan Zhongshan Road Pedestrian
+319                            Golden Bay Hotel Weihai             Wei Hai Golden Bay International Hotel
+320                 7 Days Inn Wuhan Bao Feng 1st Road                     7Days Inn Wuhan Baofengyi Road
+323    Hanting Hotel Beijing Yanqing Gaota Road Branch         Hanting Express Beijing Yanqing Gaota Road
+324  7 Days Inn Nanjing Olympic Sports Center Olymp...  7Days Inn Nanjing East Olympic Centre Subway S...
+325  7 Days Inn Taizhou Jiangyan Qintong Old Town B...    7Days Inn Taizhou Jiangyan Qintong Ancient Town
+327                      Vista Rooms @ Shanthi Theatre                     Vista Rooms at Shanthi Theatre
+329                                   Hotel Safin Pati                               The Safin Hotel Pati
+337                                 The Victoria Hotel                           The Victoria Hotel Macau
+340                             Anchorage Resort Motel                                   Anchorage Resort
+341                             Radisson Blu Hotel GRT                    Radisson Blu Hotel GRT, Chennai
+342               Best Western PLUS Palm Desert Resort               BEST WESTERN PLUS Palm Desert Resort
+343                             Grandsunpia Nara Hotel                                  Grand Sunpia Nara
+344           Toyoko Inn Tokyo Nihombashi Zeimusho Mae                 Toyoko Inn Nihombashi Zeimusho-mae
+345                                        Comfort Inn                      Comfort Inn East Pickerington
+346  Doubletree By Hilton Hotel Newcastle Internati...  DoubleTree by Hilton Hotel Newcastle Internati...
+347                               Poipet Resort Casino                             Poipet Resort & Casino
+348                              Oaks Felix Apartments                                         Oaks Felix
+349  Americas Best Value Inn & Suites-Haltom City/F...     Americas Best Value Inn Haltom City Fort Worth
+350                           Anne Hostel Asakusabashi                                        Anne Hostel
+351                     Hotel Route Inn Toyokawa Inter                     Hotel Route-Inn Toyokawa Inter
+352         Homewood Suites by Hilton Columbus Polaris         Homewood Suites by Hilton Columbus/Polaris
+354              White Rose Kuta Resort - Villas & Spa               White Rose Kuta Resort, Villas & Spa
+355                               Hostal Casa Salvador                                      Casa Salvador
+356                               Quality Inn & Suites                      Quality Inn & Suites Anderson
+360                      Hampton Inn And Suites Destin                        Hampton Inn & Suites Destin
+361                              Ibis Koeln Leverkusen                               ibis Köln-Leverkusen
+363                      Chezmoi Handicraft & Homestay                    Chezmoi Handicraft and Homestay
+364                            Conclave Boutique Hotel                            Hotel Conclave Boutique
+365                                     Hotel Aurelius                         Aurelius Art Gallery Hotel
+367                              Evenia Rossello Hotel                                    Evenia Rossello
+368                      Hotel The Neighbours Magnolia                     Hotel The Neighbour's Magnolia
+370                      Chiang Mai Royal Creek Resort                        Chiangmai Royal Creek Hotel
+371                               Country Roads Resort                                      Country Roads
+373  7 Days Inn Shijiazhuang Liangcun Development D...  7Days Inn Shijiazhuang Liangcun Kaifaqu Chuang...
+374                           A&O Stuttgart City Hotel                                 A&O Stuttgart City
+377                                       Damai Resort                               Damai Resort Orlando
+378              The Royal Paradise Resort & Salt Yard            The Royal Paradise Resort and Salt Yard
+381                    Kyriad Chambery Centre - Curial        Kyriad Chambéry Centre - Hôtel et Résidence
+384                  Best Western PLUS St. Charles Inn                  Best Western Plus St. Charles Inn
+388                      Hampton Inn Nanuet - NY Hotel                                 Hampton Inn Nanuet
+389                         Khaosan Holiday Guesthouse                                    Khaosan Holiday
+393                                   Cove Beach Villa                                           The Cove
+394                      Hotel Route Inn Aizuwakamatsu                      Hotel Route-Inn Aizuwakamatsu
+395                 Chengdu Jietai Xingzheng Apartment                         Jietai Xingzheng Apartment
+397  Homewood Suites By Hilton Austin Arboretum Nor...  Homewood Suites by Hilton Austin-Arboretum/Nor...
+399                   Jawa Dwipa Resort and Convention          Jawa Dwipa Heritage Resort and Convention
+400                                     Zhenxing Hotel                            Shenzhen Zhenxing Hotel
+404                    Comfort Inn and Suites Dayville                      Comfort Inn & Suites Dayville
+405                                        Quality Inn                                   Quality Inn Troy
+407               Campanile Bordeaux Nord Le Lac Hotel                   Campanile Bordeaux Nord - Le Lac
+408                             Guangdong Hotel Zhuhai                            Guang Dong Hotel Zhuhai
+410                                     Amerique Hotel                             Citotel Amerique Hotel
+413                                       Summit Hotel             Summit Hotel (Formerly Hallmark Hotel)
+414                                   Hotel Ritz Plaza                                         Ritz Plaza
+417                                Hotel SaiGalaxy Inn                               Hotel Sai Galaxy Inn
+418                                       Cedran Hotel                                       Hotel Cedran
+419                           The Yala Adventure Hotel                                 The Yala Adventure
+420                          Ryokan Kinnotake Tonosawa                                 Kinnotake Tonosawa
+421                                The Penthouse Hotel                 The Penthouse Hotel and Residences
+422                                     Junction Hotel                         Junction Hotel Nay Pyi Taw
+425                                            A Hotel                                     A Hotel Penang
+427                        Saga Heritage Accommodation                                      Saga Heritage
+428  7 Days Inn Dongguan Humen Yellow River Fashion...  7Days Inn Dongguan Huanghe Fashion City Second...
+429                          Maya Sanur Resort and Spa                            Maya Sanur Resort & Spa
+430         Daiwa Roynet Hotel Nagoya Shinkansen-guchi          Daiwa Roynet Hotel Nagoya Shinkansenguchi
+432                            Kohmak Riverside Resort                                   Riverside Resort
+433                               The Myth-Sud Sathorn                             The Myth - Sud Sathorn
+434                                       Cuarto Hotel                                 Cuarto Hotels Cebu
+435                  Shenyang Sifang Service Apartment                          Shenyang Sifang Apartment
+436                      Boutique Stays Hart of Elwood                    Boutique Stays - Hart of Elwood
+437                            MH Florence Hotel & Spa                            Mh Florence Hotel & Spa
+439  Jinjiang Inn Shenyang Heping North Street 1st ...  Jinjiang Inn Shenyang Zhongshan Square Medical...
+440  GreenTree Inn Fuyang Middle Yingzhou Road Busi...  GreenTree Inn Anhui Fuyang Middle Yingzhou Roa...
+441  GreenTree Inn ShanDong Jining Zoucheng Changpi...  GreenTree Inn ShanDong JiNing ZouCheng ChangPi...
+446                       Hotel Whistling Pines Resort                       Whistling Pine Resorts & Spa
+449                      The Runnymede on Thames Hotel                            The Runnymede-On-Thames
+450         Best Western Plus Gadsden Hotel and Suites           Best Western Plus Gadsden Hotel & Suites
+451                  Hilton Garden Inn Seattle Bothell                  Hilton Garden Inn Seattle/Bothell
+452            La Marquise Luxury Resort Complex Hotel                  La Marquise Luxury Resort Complex
+453                          Best Western PLUS Sundial                          Best Western Plus Sundial
+454                            Americas Best Value Inn                             Classic Inn of Tavares
+455               Best Western PLUS Siesta Key Gateway             Best Western Plus - Gateway Siesta Key
+457                      Odyssey Residence Suite Hotel                       Odyssey Residence Apartments
+458  Chongqing Yangtze River Internatioanl Youth Ho...           Yangtze River International Youth Hostel
+460                              City Rooms Guesthouse                                         City Rooms
+461                                 Qing He Yue Hostel                                      Qingheyue Inn
+462                                            J Hotel                      J Hotel ( Natural Hot Spring)
+463                                      Windsor Hotel                             Windsor Hotel Taichung
+464                        Novotel Saigon Centre Hotel                              Novotel Saigon Centre
+465  Hampton Inn And Suites Austin The University C...   Hampton Inn and Suites Austin University Capitol
+469                        Best Western North East Inn                          Best Western - North East
+471                       Comfort Inn and Suites Byram                         Comfort Inn & Suites Byram
+472                        Mounts Bay Waters Apartment                  Mounts Bay Waters Apartment Hotel
+474                 Lexington Inn And Suites Yuba City                   Lexington Inn & Suites Yuba City
+475                         Courtyard Aberdeen Airport             Courtyard by Marriott Aberdeen Airport
+478                                          Rex Hotel                                 Rex Hotel Adelaide
+479                               Seakissed Beachhouse                              Seakissed Beach House
+480                              The Lokha Ubud Resort                                     The Lokha Ubud
+484                     Athens Atrium Hotel and Suites               Athens Atrium Hotel & Jacuzzi Suites
+488                     Hidden Paradise By Rahi Resort                  Hidden Paradise - By Rahi Resorts
+489                                   Valentinos Hotel                                  Valentino's Hotel
+492                                 Leopards Club Yala                                  LeopardsClub YALA
+493                           Green Coconut Resort-ECR                               Green Coconut Resort
+494           7 Days Inn Lanzhou Yongchang Road Branch                   7Days Inn Lanzhou Yongchang Road
+495                              Penthouse Villa Trixy                            Penthouse & Villa Trixy
+498                                  Hotel Le Mireille                                        Le Mireille
+-----
+Printing mismatches for keys:  ['p1.city_name', 'p2.city_name']  number of mismatches: 488
+                             p1.city_name                p2.city_name
+1    Mae Suai / Wiang Pa Pao (Chiang Rai)                 Ban Pa Ngiu
+2                                     Goa                   Calangute
+4                               Rome (NY)                        Rome
+5                                   Chiba                      Onjuku
+9                               Shiretoko                    Kiyosato
+11                            Chiang Saen             Golden Triangle
+13                               Shizuoka                   Minamiizu
+16                                  Samui                 Lamai Beach
+17                               Taichung                       Xitun
+18                   College Station (TX)             College Station
+20                                 Manali                      Manāli
+23                                  Krabi                Tonsai Beach
+27                               Shizuoka                       Atami
+31                     Whitsunday Islands                Airlie Beach
+32                             La Fortuna                     Fortuna
+33                         Sunshine Coast                 Noosa Heads
+35                                 Penang                 George Town
+37                                 Nagano                  Yamanouchi
+38                     Thiruvananthapuram                  Trivandrum
+39                        Livingston (MT)                  Livingston
+40                      Central City (NE)                Central City
+41                              Compiegne                   Compiègne
+42                          Tacloban City                    Tacloban
+48                                Hualien                Hualien City
+52                               Haiphong                      Ðố Sơn
+53                            Jeju Island                        Jeju
+54                                   Bali                    Seminyak
+55                                Wadduwa                    Kalutara
+56                               Alleppey                  Eramalloor
+58                                Negombo                    Wayikkal
+59                    Saint Lucia Estuary                    St Lucia
+60                              Koh Samet                    Ko Samed
+62                     Whitsunday Islands                       Bowen
+68                                  Chand                      Indore
+72                              Koh Lanta                    Ko Lanta
+73                                  Hampi                      Hospet
+74                       Hua Hin / Cha-am                     Hua Hin
+75                                Samosir                     Tuk Tuk
+79                                 Halong                    Thuan An
+80                                   Bali                    Jimbaran
+82                           Yarra Valley                 Healesville
+84                                  Krabi               Ao Nang Beach
+86                            Gilroy (CA)                      Gilroy
+87                                 Nagano                  Yamanouchi
+88                           Orlando (FL)                     Orlando
+89                          Sterling (VA)                    Sterling
+90                              Sokcho-si                      Sokcho
+91                                Pattaya             Pattaya Central
+94                    Stratford Upon Avon                    Alcester
+95                                Ibaraki                     Tsukuba
+97                          Hunter Valley                    Rothbury
+99                                 Karnal                      Karnāl
+103                      Noblesville (IN)                 Noblesville
+107                      Los Angeles (CA)                     Burbank
+108                         Wildwood (FL)                    Wildwood
+109                               Mathura                   Vrindāvan
+110                               Pattaya               Jomtien Beach
+111                                Phuket                Patong Beach
+112                            Indio (CA)                       Indio
+113                                Phuket              Nai Harn Beach
+115                      Los Angeles (CA)                 Los Angeles
+116                               Colombo                    Dehiwala
+117                                 Samui                    Lipa Noi
+118                     New Delhi and NCR                     Gurgaon
+119                            Mount Emei                    Emeishan
+120                          Yangyang-gun                    Yangyang
+121                               Pattaya               Jomtien Beach
+123                                  Bali                      Canggu
+124                         New York (NY)                    New York
+130                      Mauritius Island                    Blue Bay
+133                         Xishuangbanna                    Jinghong
+136                                Penang                 George Town
+137                               Thakhek                     Ban Lao
+138                             Hiroshima            Higashihiroshima
+142                              Taichung                       Xitun
+144                        Boracay Island                     Boracay
+145                             Koh Lanta                    Ko Lanta
+146                                 Paris                     Bobigny
+149                            Phan Thiet                       Ke Ga
+154                       Angeles / Clark                     Angeles
+157                         Abingdon (VA)                    Abingdon
+159                             Bangalore                  Devanhalli
+162                           Belton (MO)                      Belton
+163                       Toms River (NJ)                  Toms River
+165                         Mobridge (SD)                    Mobridge
+166                              Nagasaki                      Sasebo
+167                    San Francisco (CA)               San Francisco
+168                             Avon (CO)                        Avon
+171                                 Nasik                      Nashik
+173                               Mbabane                    Ezulwini
+175                                 Samui           Chaweng Noi Beach
+176                               Kenting                       Eluan
+183                    Garges-les-Gonesse                  Le Bourget
+184                                Manali                        Kulu
+185                          Kuala Lumpur                 Subang Jaya
+190                               Pattaya             Pattaya Central
+191                                  Wuxi                      Yixing
+194                         Sihanoukville             Phumĭ Poŭthĭ Té
+196                      Hua Hin / Cha-am                      Cha Am
+197                      Mauritius Island                  Belle Mare
+202                               Kenting           Hengchun Old Town
+204                                  Addo                    Kirkwood
+214                       Valparaiso (IN)                  Valparaiso
+216                               Waitomo                    Pirongia
+217                        Blue Mountains                    Katoomba
+218                         Victor Harbor                   Middleton
+219                      Monroeville (AL)                 Monroeville
+220                        Sunshine Coast                  Noosaville
+222                     Sunset Beach (CA)            Huntington Beach
+227                      Kansas City (MO)                     Liberty
+228                        Boracay Island                     Boracay
+229                            Omaha (NE)                       Omaha
+231                       Sherbrooke (QC)                  Sherbrooke
+233                                Phuket                 Phuket Town
+234                     Collinsville (IL)                Collinsville
+235                       Pyeongchang-gun                Pyeongchang 
+241                               Niigata                     Shibata
+245                           Jeju Island                        Jeju
+247                               Majorca                 Santa Ponsa
+248                            Mount Fuji                  Fujinomiya
+250                     Tuy Hoa (Phu Yen)                     Tuy Hoa
+253                               Hualien                Hualien City
+254                              Jamnagar                    Jāmnagar
+255                                Shimla                       Jūnga
+257                            Phan Thiet                      Mui Ne
+261                                 Yilan                     Luodong
+263                                  Durg                Rāj Nāndgaon
+264                 Rach Gia (Kien Giang)                    Rach Gia
+266                              Chonburi                 Ban Tha Sai
+268                       Greensburg (PA)                  Greensburg
+271                        Rochester (NY)                   Rochester
+272                               Bangkok                 Lat Krabang
+273                            Vijayawada                  Vijayawāda
+276                          Gran Canaria  Las Palmas de Gran Canaria
+277                                  Oita                       Beppu
+278                          Barstow (CA)                     Barstow
+279                          Fortuna (CA)                     Fortuna
+280                           Edison (NJ)                      Edison
+283                               Negombo                  Katunayaka
+285                                   Goa                      Utorda
+287                              Istanbul                    İstanbul
+288                                London                   Brentford
+289                        Arlington (VA)                   Arlington
+291                                   Goa                      Panaji
+294                                  Sapa                       Sa Pa
+296                          Seattle (WA)                     Tukwila
+297                            Eagle (CO)                       Eagle
+298                       Coralville (IA)                  Coralville
+299                           Murray (KY)                      Murray
+300                           Monroe (LA)                      Monroe
+303                               Da Nang                     Con Dao
+304                                 Kochi                      Kāladi
+307                          Kuala Lumpur                      Kajang
+308                                Malaga                      Málaga
+312                        Boracay Island                     Boracay
+321                                Yangon                    Thanlyin
+323                               Beijing                     Yanqing
+325                     Taizhou (Jiangsu)                     Taizhou
+330                     New Delhi and NCR                   New Delhi
+332                              Haridwar                    Haridwār
+334                           Prachinburi                  Kabin Buri
+338                                 Krabi                Railay Beach
+339                          Manheim (PA)                     Manheim
+342                      Palm Desert (CA)                 Palm Desert
+343                                  Nara              Yamatokoriyama
+345                     Pickerington (OH)                Pickerington
+346                   Newcastle-upon-Tyne         Newcastle upon Tyne
+347                              Ou Chrov                      Poipet
+349                       Fort Worth (TX)                 Haltom City
+351                                 Aichi                    Toyokawa
+352                         Columbus (OH)                 Westerville
+354                                  Bali                      Legian
+356                         Anderson (IN)                    Anderson
+359                                  Bali                    Jimbaran
+360                           Destin (FL)                      Destin
+364                     New Delhi and NCR                   New Delhi
+366                        Las Vegas (NV)                   Las Vegas
+370                            Chiang Mai                   Hang Dong
+371                               Kolkata                     Chengel
+372                              Vung Tau                     Ha Long
+373                          Shijiazhuang                    Gaocheng
+375                  Kruger National Park         Balule Game Reserve
+376                               Palawan                       Coron
+377                          Orlando (FL)                     Orlando
+378                                 Ajmer                         Bīr
+380                              Cheshunt               Waltham Cross
+381                              Chambery                    Chambéry
+384                      New Orleans (LA)                 New Orleans
+385                     Lenk im Simmental                        Lenk
+387                         New York (NY)                    Brooklyn
+388                           Nanuet (NY)                      Nanuet
+391                            Gold Coast             North Tamborine
+394                             Fukushima               Aizuwakamatsu
+397                           Austin (TX)                      Austin
+401                                 Anyer                    Pasauran
+403                                Nagano                      Hakuba
+404                         Dayville (CT)                    Dayville
+405                             Troy (MI)                        Troy
+406                             Santorini                  Imerovigli
+409                      Los Angeles (CA)                 Los Angeles
+410                           Montpellier           Palavas-les-Flots
+411                 Hawaii The Big Island                    Waikoloa
+412                                Phuket                Patong Beach
+415                        Ras Al Khaimah              Ras al Khaimah
+419                                  Yala               Tissamaharama
+421                       Angeles / Clark                     Angeles
+423                              Istanbul                    İstanbul
+425                                Penang                 George Town
+427                              Sigiriya                    Habarana
+429                                  Bali                       Sanur
+431                              Langkawi                        Kuah
+432                        Koh Mak (Trad)                      Ko Mak
+434                                  Cebu                   Cebu City
+441                                Jining                    Zoucheng
+446                                Manali                   Jagatsukh
+449                                London                       Egham
+450                          Gadsden (AL)                    Siberton
+451                          Bothell (WA)                     Bothell
+452                                Rhodes                    Faliraki
+453                          Phoenix (AZ)                  Scottsdale
+454                          Tavares (FL)                     Tavares
+455                         Sarasota (FL)                    Sarasota
+456                                Manali                      Manāli
+461                             Huangshan                          Yi
+463                              Taichung                       Xitun
+465                           Austin (TX)                      Austin
+469                       North East (MD)                  North East
+470                                Halong                     Ha Long
+471                            Byram (MS)                       Byram
+474                        Yuba City (CA)                   Yuba City
+475                              Aberdeen                        Dyce
+476                               Bangkok              Ban Bang Muang
+477                                  Bali                      Canggu
+479                            Jervis Bay             Greenwell Point
+480                                  Bali                        Ubud
+481                                  Bali                        Kuta
+482                              Mazarron       El Puerto de Mazarrón
+485                               Kenting                     Wangsha
+488                                   Goa                     Mandrem
+489                       Angeles / Clark                     Angeles
+491                               Hsinchu                Hsinchu City
+492                                  Yala                  Palatupana
+493                               Chennai                    Covelong
+497                                  Bali                   Pemuteran
+-----
+Printing mismatches for keys:  ['p1.country_code', 'p2.country_code']  number of mismatches: 0
+Empty DataFrame
+Columns: [p1.country_code, p2.country_code]
+Index: []
+-----
+Printing mismatches for keys:  ['p1.hotel_address', 'p2.hotel_address']  number of mismatches: 806
+                                      p1.hotel_address                                   p2.hotel_address
+0                      Jl. Iskandar Muda no. 168 Jambi  Jalan Iskandar Muda No. 168, Sei Asam, Pasar J...
+1    171 Moo.1 Tambol Pa Ngiu Ampor Wiangpapao Chia...                  171 Moo.1 Tambol Pangiu Chiangrai
+2                              Holiday St, Gaura Waddo  Holiday Street, Gaura Waddo, Calangute,Bardez,Goa
+3                     Building 3, No. 116 Tongtai Road  No. 3 Building, No. 116 Tongtai Road, Baiyun D...
+5                 2140-2 Onjuku-machi Hama, Isumi-gun,                                       Hama 2140-2 
+6                                       Poonagala Road        Bandarawela Station, Poonagala Road, Sagala
+7                  28-4, Itaewon-ro 23-gil, Yongsan-gu                     122-7 Itaewon-dong, Yongsan-gu
+8    Adjacent to HAL Airport, Arrival Gate, Konena ...  Adjacent HAL Old Airport Arrival Gate, Konena ...
+9                  282, Kouyou, Kiyosato-cho Shari-gun                                           Koyo 282
+10                   677-8, Yeoksam 1-dong, Gangnam-gu                    677-8 Yeoksam-dong, Gangname-Gu
+11   157 Moo 1 Samlianmthongkham T.wiang A. Chiangsean                436 Moo 1, T. Wiang, A. Chiang Saen
+12                 No.29, Taobo Avenue, Nanzhuang Town                                 No.29 Taobo avenue
+13                                    204-2, Shimogamo                                    Shimogamo 204-2
+14                                        Arbyzova 6/2                                Arbuzova Ulitsa 6/2
+15                               No.27 Tong Hai street                 No. 27, Tonghai Lane, Kending Road
+16   26/1-3 Moo 3, Maret District, Koh Samui, Surat...     26/1-3 Moo 3, T. Maret, Lamai Beach, Koh Samui
+17               No.9-11, Nanzi Ln., Sec. 2, Xitun Rd.         No. 9-11 Nanzi Lane, Section 2, Xitun Road
+19     182/1 Rachamankha Rd.T,Phrasing,Muang Chiangmai             182/1 Rachamankha Rd., Phrasing, Muang
+20             Near Club House, Shnag Road, Old Manali  Shenag Road, 100 Mt ahead of Old Manali, Himac...
+22   51/4 Chiang Mai - Sankampaeng Road Moo 1, Amph...  51/4 Chiang Mai-Sankampaeng Road., Moo 1, T. T...
+23                                            43 Moo 2    Tonsai Beach, 86 Moo 2, T.Ao Nang, Muang, Krabi
+24                                     1 Tai Ning Road                                  No.1 TaiNing Road
+25                Calle Martin Napanga 137, Miraflores                                 Martin Napanga 137
+26               No.11 Wan Ming Road, Xicheng District                                 No.11 Wanming Road
+27                                       1-2 Kasugacho                                     Kasugacho 1-2 
+28                                   40 Mowbray Street                                      40 Mowbray St
+29                        No 222, Jin Tai Road, Pudong                                 No.222 Jintai Road
+30                             16 Bayswell Park Dunbar                                  16 Bayswell Park 
+32                                     Calle Principal     Costado sur del templo catolico de la Fortuna 
+34                       1 South Section,Tianfu Avenue                           No.1 South Tianfu Avenue
+35               129 -139, Jalan Masjid Kapitan Keling                  133, Jalan Masjid Kapitan Keling,
+36                                       Corniche Road                                     Corniche Road 
+37                7148 Hirao,Yamanouchi,Shimotakai-gun                                         Hirao 7148
+38      Kumarapuram - Pattom Road, Medical College P.O                   Kumarapuram, Medical College P.O
+40                                       1701 31st St.                                   1701 31st Street
+41                                    70 Avenue de Huy                                   70 Avenue De Huy
+42                         P. Zamora St. Tacloban City                  P. Zamora St.Tacloban City, Leyte
+43                                 Romero Street, No.6                                         Romero 6  
+44                         6 Moo.5, Samnakthong, Muang            6 Moo 5, Tambon Samnakthong Ampur Mueng
+45                               GauriGhat,Lake Side-6               Gauri Ghat, House No.32, Lake Side-6
+48                           No.203-1, Guosheng 2nd St                     No. 203-1, Guosheng 2nd Street
+49                                 9 RUE DE CASTELLANE                               9, Rue de Castellane
+51                               158, Angel Rest House      No - 158 '' Angel Rest " Harbour Road Mirissa
+52                                             Zone II                                             Area 2
+53   17-6 Eomjang-ro, Aewol-eup (1054-1 Gueom-ri, A...                         1054-1 Gueom-ri, Aewol-eup
+54                          Jalan Kayu Aya, Gang Pandu                    Jalan Kayu Aya, Gang Pandu 20 B
+55                       Mahawaskaduwa, Kalutara North                     Mahawaskaduwa, Kalutara North 
+56                      Kakkathurathu road, Eramalloor  National Highway 47, Chammanadu, Kodamthuruth,...
+57   100m Southwest of Railway Station, Yaohai Dist...        100 meter away Southwest of Railway Station
+58                      No.161, Chilaw Road, Kochikade         No. 161, Chilaw Road, Kochchikade, Negombo
+59                  81 McKenzie Street, St Lucia, 3936                                 81 McKenzie Street
+60                        1/1 M.4 T.Phe A.Muang Rayong                    1/1 Moo.4 T.Phae A.Muang Rayong
+61                                  No.101, Shifu Road                                No. 101, Shifu Road
+64                                No.34 Fa Zhan Da Dao                        No.34 Fa Zhan Avenue HanKou
+65                                        Dubai Marina                                   MARINA DIAMOND 4
+67   Yodogawa-ku, Jūsōhigashi, 3 Chome−4-9 Cosmo He...               Yodogawa-ku, Juso-Higashi 3-4-9 #103
+68   Hotel Apna PalaceDhar Road, Opp. District Hosp...  Dhar Road, Opp. District Hospital, Madhya Pradesh
+69                                Johan Blignaut Drive                          Johan Blignaut Drive (N5)
+70        Al Hamraa Dist. Near United Doctors Hospital      Al Hamraa Dist. Near United Doctors Hospital 
+71                     10/17 NimmanHaemin Road Lane 17  10/17, Nimmana Haeminda Rd Lane 17, Amphoe Mue...
+72                            93 Moo 8 Klong Nin Beach                     93 Moo 8, Koh Lanta Yai, Krabi
+73                                      Bus Stand Road          343, 4th ward, opp SBI Bank, Hospet India
+74   63/411 (Marrakesh Condo) Petchakasem Road, Moo...  63/167 Petchkasem Road, Nong-Kae, Hua Hin, Pra...
+75                              Lingkar Tuktuk Siadong                       Jalan Lingkar Tuktuk Siadong
+76   Opposite Bus Stop, Nagar Manmad Road,Near Temp...  Nagar-Manmad Road, Opp Bus stop,Near Sai baba ...
+77                                   No 52, Zhuzi Road                       No.52.Zhuzi Alley，Xiangshan,
+78                                      9-14 Ekimaecho                                    Ekimae cho 9-14
+79                         128 Hau Can , Bai Chay Ward  39/10 ap Hoa Long, Vinh Phu, Thuan An, Binh Duong
+80   Located at Dila Homestay I, Jalan Uluwatu II N...              Jalan Uluwatu II No. 2, Gang Sudamala
+81                     92/94/96 Principe Amedeo Street                          Via Principe Amedeo 92/94
+82                                    28 Symons Street                                28-30 Symons Street
+83                             27-33, Qiaosikong Xiang                           No.27-33,Qiaosikong Lane
+84                                          113, Moo 2                              113 Moo2 Muang, Krabi
+85                          1-4-8 Awaji-machi, Chuo-ku                           Chuo-ku Awajimachi 1-4-8
+87        2586-5 Sano, Yamanouchimachi, Shimotakai-gun                                       Sano 2586-5 
+90   111 Misiryeong-ro 2983beon-gil (24-1 Jangsa-dong)                    111, Misiryeong-ro 2983beon-gil
+91   420/100 Moo 9 Soi Buakhaw, Nong Prue, Banglamu...       420/100 Moo 9 Soi Buakhao, Pattaya, Chonburi
+93                        Al Waab Street,  Aspire Zone                        Al Waab Street, Aspire Zone
+95                         1-12-4, Sengen, Tsukuba-shi                                      Sengen 1-12-4
+96                                      6 Queens Road,                                      6 Queens Road
+97                                      310 Talga Road                                       310 Talga Rd
+98                    Jalan Tirtodipuran 42 Yogyakarta                                Jl. Tirtodipuran 42
+99   Noormahal Crossing, National Highway-1, Sector 32                Noormahal Crossing, NH-1, Sector 32
+100                                     Via Prenestina                                  Via Prenestina 82
+101  No.204, Tran Quang Khai Street, Hoan Kiem Dist...                               204 Tran Quang Khai 
+105                       43 Boulevard Marcel Dassault  43 rue Chapelet - Boulevard Marcel Dassault RN...
+106                                   5-20 Funatsu-cho                                    Funatsucho 5-20
+108                                   1224 S. Main St.                             1224 South Main Street
+109       Khasra No.797,Gopalgarh Tehra Road,Vrindavan  Khasra No. 797, Gopalgarh Tehra Road, Vrindava...
+110  279/347 Moo 12 soi Somprasong Plaza, Jomtien b...  279/347-350 Moo 12 Soi Hotel Srita Liabhaadjom...
+111                         92/5 Thawewong Road, Kathu             92/5 Thawewong Rd. Patong Beach, Kathu
+112                                      WorldMark Way                                   46 Worldmark Way
+113                26/27 Moo 1 Soi Naya Naiharn Phuket                                     26/27 soi naya
+114                             C/ Reyes Católicos , 5                                Reyes Católicos , 5
+115                           537 Washington Boulevard                      537 West Washington Boulevard
+116                               Sri Saranankara Road              127 1/1 Sri Saranankara Road Dehiwala
+117            58/15 Moo 2, Racha Ferry road, Lipa noi                58/15 Moo 2, Koh Samui, Surat Thani
+118                                  P-5/1 Dlf Phase 2                               P-5/1 ,DLF Phase - 2
+119                                 No.2, Dongxin Road                                     2 Dongxin Road
+120            121-2 Junggwangjeong-ri, Hyeonbuk-myeon           121-2, Junggwangjeong-ri, Hyeonbuk-myeon
+121                  495/32 2floor Nongprue Banglamung  495/19, Moo 12, Jomtien Sai 2, Tambol Nongprue...
+122              No.63,Zhaoshang Road,Nanshan District   No.63, Zhao Shang Road, Nanshan District, She...
+123                    Jalan Kuwum Gang Anggarek no 22                     Jl. Kuwum, Gang Anggrek No. 22
+124               196 Grand Street, New York, NY 10013                                   196 Grand Street
+125                            2063 M.H. Del Pilar St.                2063 M. H. Del Pilar Street, Malate
+126  No.1 Zengcheng, Jinhai Square, Building 8, No....  Room 102, Unit 3, Building 8, Jinhai Square, N...
+127                                 Via di Ripetta, 12                                  Via di Ripetta 12
+129                            No.188 Yingbin Nan Road  No.188, Yingbin South Road, Chengnan New District
+130                                  94A,Daurades Road                         94a, Daurade Road Blue Bay
+131                   12 Marine Road, Three Anchor Bay                                     12 Marine Road
+132  Madinat Makadi, Safaga Road, P.O. Box 387, Red...          Makadi Bay - 34 Km Hurghada - Safaga Road
+133               300 meters east of passenger station             300 East to Jinghong South Bus Station
+134                          No.3333 Renmin North Road                          No.3333 North Renmin Road
+135                                        Jalan Budhi                               Jalan Budi No. 27/29
+136                          No 9 & 11, Lebuh Campbell  No.9 & 11, Campbell Street, Lebuh Carnarvon, P...
+137                                      Ban Paksimung                                        Ban pakdong
+138                                      2-6-36 Minaga                                      Minaga 2-6-36
+139                         83 23rd Street, Menlo Park                       83, 23 rd Street, Menlo Park
+141   2-B Blumentritt Street Corner Gonzaga, Centro 04                  2-B Blumentritt Street, Centro 04
+142             No.9-11, Nanzi Ln., Sec. 2, Xitun Rd.,        No. 9-11, Nanzi Lane, Section 2, Xitun Road
+143        No.5 Jianguomenwai Avenue Chaoyang District                        No.5 Jianguo Men Wai Da Jie
+144                   Road 1-A, Bulabog, Brgy. Balabag  Bulabog Rd. 1-A, Brgy. Balabag, Boracay Island...
+145                          571 Moo 3, Saladan, Krabi  571 Moo 3, Saladan, Koh Lanta, Pra Ae Beach, ,...
+146                304, avenue Paul Vaillant Couturier                 304 Avenue Paul-Vaillant-Couturier
+147                8001 Saint Jose Maria Escriva Drive      8001 Saint Jose Escriva Drive, Ortigas Center
+148  Jl. Raya Tanawangko, Desa Tateli Kecamatan Pin...                              Jalan Raya Tanawangko
+149         719 Road, Tan Thanh Village, Ham Thuan Nam  Ke Ga Hamlet, Tan Thanh, Ham Thuan Nam Distric...
+150                                    400, Galle Road                                     400 Galle Road
+152           12B Hang Manh Street, Hoan Kiem District                                      12B Hang Manh
+154                       Don Juico Avenue, Malabanias  Don Juico Avenue, Malabanias, Angeles City, Pa...
+155                         Goncalo Sampaio Street 282                           Rua Gonçalo Sampaio, 282
+156            No. 426,8th Main, 4th Block Koramangala     Survey No 426, 8th Main 4th Block, Kormangala 
+157                                   887 Empire Drive                                  887 Empire Drive 
+158               28 Bat su Street, Hoan Kiem District                                         28 Bat Su 
+159  Swiss Town , Hollywood Junction, Sadahalli Pos...  Swiss Town, Hollywood JN, Sadahalli PO, Devena...
+160                                                  .                                                   
+161                     Bolshaya Yushunskaya ulitsa,1A              Ulitsa Bolshaya Yushunskaya 1 A Bld.2
+162                                   222 Peculiar Dr.                                 222 Peculiar Drive
+164                                   153 Rakow Street                                   153 Rakow street
+166                                       4-4 Miuracho                                          Miura 4-4
+168                         0161 W. Beaver Creek Blvd.                   0161 West Beaver Creek Boulevard
+170                                 Max Eyth Street 41                                Max-Eyth-Strasse 41
+171  Adgaon naka near Aurangabad naka panchavati nasik   New Adgaon Naka, Near Aurangabad Naka, Panchwati
+172        Ban Pakham, Unit 4/143, Luang Prabang, Laos                              Ban Pakham Unit 4/143
+173      Old Mbabane/Manzini Main Road Ezulwini Valley     Old Mbabane/Manzini Main Road, Ezulwini Valley
+174                              Bakhrushina street 11                              Ulitsa Bakhrushina 11
+175               104/28 Moo 3, Chaweng Noi, T. Bophut             104/28 Moo 3  Thambon Bophut Koh Samui
+176                                  No.252, Shadao Rd                               No. 252, Shadao Road
+177                            21 Derb Chtouka, Kasbah                                    21 Derb Chtouka
+178                            6 Ambyl Road,Mosselbank                           6 Ambyl Road, Mosselbank
+180                     17/34 Nguyen Tri Phuong Street                            17/34 Nguyen Tri Phuong
+181  Naif Road, Naif, Deira, Opposite Naif Park P.O...                            Naif Road, Deira, Dubai
+182         71/1,Jessore Road, Opp Airport 2.5 No Gate  71/1, Jessore Road,Near Netaji Subhas Chandra ...
+184         Behind H.P. Tourism Office, Dhalpur, Kullu                Behind H.P. Tourism Office, Dhalpur
+185                               No 1, Jalan SS 15/5A                                   1, Jalan SS15/5A
+186                                No 4023 Jiabin Road  4023, Jiabin Road, Luohu District, Shenzhen, G...
+187                                 No.134,Che Zhan Lu                              No.134 Chen Zhan Road
+188  Building D Huaqiang Garden, Fuhong RD,Futian D...  Building D, Huaqiang Garden, Fuhong Road, Futi...
+190  316/144 M.10 Soi Buakhao, Pattaya, Nongprue Ba...  316/144 M.10 Buakhao Rd Nongprue Banglamung Ch...
+191                         No.238 Middle Renming Road                          No.238 Middle Renmin Road
+192              No. 61 Pantao Street, Yangshuo County                               No.61 Shengxian Road
+193  Jaipur By pass road, Village Nedliya Near Chun...  Jaipur By Pass Road, Village Nedliya, Near Chu...
+194               28 Mithona Street, Mondol1, Sangkat3              Sangkat 3, Mondol 1, Khan Mittapheap,
+195                  25 Jiaotong Road, Yue Hu District               No.25, Jiaotong Road, Yuehu District
+196                              327/37 cha-am hua hin  327/37 Nong Chaeng Alley, Cha-am District, Phe...
+197                      B59, Coastal Road, Belle Mare                    Coastal Road, B59, Quatre Cocos
+198  Lot 1640, Jalan Hiliran, (Balik Bukit), Tereng...             Lot 1640, Jalan Hiliran, (Balik Bukit)
+199  Hallmark Hospitality Services, Plot No 8, 1-89...  Hallmark Hospitality Services,Plot No 8, 1-89/...
+200                           Persiaran Lapangan Siber    52A, Jalan Lapangan Suria, Medan Lapangan Suria
+201      56 Moo 4 Tambon Tasala , A.muang . Chiang Mai      56, Moo 4, Tambon Tasala, A.Muang, Chiang Mai
+202                               No.226, Henggong Rd.                             No. 226, Henggong Road
+203                                        Shin Saw Pu       No. 39, Shin Saw Pu Road, Sanchaung Township
+204                            1 Sonop Street Kirkwood                           1 Sonop Street, Kirkwood
+205                        115/19 Moo 2 Photharam Road  115/19 Moo2, Photharan Rd. T.Chang Phuak, A.Meung
+206                                8 Hung Vuong Street                             8 Hung Vuong Boulevard
+207  163-165 changkraphong rd., pranakron chanasron...        163-165 Jakapong Road, PhraNakhon, Taladyod
+209                      Jl.Citraland Utama, Citraland                       Citra Raya Utama, Citra Raya
+210                                  17 Vaschvitz Str.                                       Vaschvitz 17
+212                                345 Dangarsleigh Rd                              345 Dangarsleigh Road
+213  136-138 Damrongrak Road (Opposite Sitaram Temple)  136-138 Damrongrak Road, Pom Prap Sattru Phai ...
+215                                         Arago, 155                                         Aragó, 155
+216               1724 McClure Street, RD6, Te Awamutu                                1724 McClure Street
+217                            6 Cliff Drive, Katoomba                                      6 Cliff Drive
+219                              4419 S Alabama Avenue                          4419 South Alabama Avenue
+220                                 134 Gympie Terrace                             134-136 Gympie Terrace
+221    Block A3, Bandar Labuk Jaya, Mile 7, Labuk Road    Block A3,Bandar Labuk Jaya, Mile 7, Labuk Road,
+223                                      7-8 Nijodori,                               Nijo-dori 7 Hidari 8
+224                                   Northern Borders                                  Northern Borders 
+225                        231 Ulster Street, Whitiora                                  231 Ulster Street
+226                                   100 Corso Matino                                   Corso Matino 100
+228                                     Boat Station 2                                            Balabag
+230  Nehru Park Dal Lake Gate No. 14 behind Hotel L...       Nehru Park, Gate No 14, Behind Hotel Leeward
+231                                 4295 boul. Bourque                             4295 Boulevard Bourque
+232                                      Milimani Road  Milimani Road,Opposite Provincial Police Headq...
+233                                  88 Yaowarat Road,                  88 Yaowarat Road, Taladyai, Muang
+234                                     8 Commerce Dr.                                   8 Commerce Drive
+235   1097-1, Myeonon-ri, Bongpyeong-myeon, Gangwon-do                  1095 Myeonon-Ri, Bongpyeong-Myeon
+237        27/8 Thaphae Road Soi4 T.Chang Klan A.Muang  27/8 Thapae Rd., Soi 4, Changklan, Muang Chian...
+238                               1 La Bypass, Labadi.                                     No. 1 Bypass, 
+239                                    Sri Harsha Road                         No. 2716. Sri Harsha Road 
+240                            No.100 XingFu Lake Road                               No.100 Xingfuhu Road
+241                               278-2 Tsukioka Onsen                               Tsukiokaonsen 278-2 
+243                           Al Shuhada Street,Dasman                                  Al Shuhada Street
+244            Jl Raya Puncak KM 90, Kp.Parabon Ciloto  Jl. Raya Puncak Km 90 Ciloto, kp Parabon No. 1...
+245                      243-1. Yongdam1-dong, Jeju-si                               243-1 Yongdamil-dong
+246                155-32 Yamada Kucchan-cho Abuta-gun                             Kutchan Yamada 155-32 
+247                                 VÍA REY SANCHO, 11                                 Via Rey Sancho, 11
+248                          14-15 Chuocho, Fujinomiya                                     Chuo-cho 14-15
+249               No. 66 Huangcuo brook head City Road                        No.66, Huang Cuo Xi Tou Xia
+250  No. 314A-314B, Hung Vuong Street, Phu Yen Prov...                                     314 Hung Vuong
+251                           22, Lower Road Orr'Shill                           22,Lower Road Orr,s Hill
+252                          95 Baron Van Reede Street                          95 Baron van Reede Street
+253                            No.103, Guolian 1st Rd.                          No. 103, Guolian 1st Road
+254                                    Street Number 6                       Opp; DKV College, P. N. Marg
+255                                          VPO Junga     Flag House Resort, VPO Junga, Himachal Pradesh
+256                                    No.3 Panyu road                Jianxin Avenue,Cangshan District   
+257                   69/5 Nguyễn Đình Chiểu, Ham Tien                   69/5 Nguyen Dình Chieu, Ham Tien
+258                                      2-5, Okawacho                                       Okawacho 2-5
+259                                    12 Sunanda Road                          12, Sunanda Road, Mirissa
+261                                  No.423, Zhulin St                             No. 423, Zhulin Street
+262                               No.76 Jianshe Street             No.76, Jianshe Street, Xigang District
+263                    Hotel Laxminarayan, Halwai Line          Halwai Lane Bharat Mata Chowk Rajnandgaon
+264                 D8 39-40 Lac Hong Street, Vinh Lac                  D8, 39-40 Lac Hong, Vinh Lac Ward
+265                             617, Sec 2, Ta Tung Rd                   No. 617, Section 2, Ta Tung Road
+266      Kongtasai 158/2 m.5 Bangpra Sriracha Chonburi      158/2 Moo 5 T.Bang Phra, A.Si Racha, Chonburi
+267                              5 Rue de la Sourdiere                              5 Rue De La Sourdière
+268                        935 E. Pittsburgh St Rt. 30                                5351 State Route 30
+269  Nagar Mammad Road, Opp Saibaba Sasthans Bhakti...  Nagar Manmad Road, Opposite 500 Rooms, Next to...
+270          Unit CDE, Phoenix Island, Sanya Bay Road.                 Phoenix Island CDE, Sanya Bay Road
+272                    840 Lat Krabang Rd. Lat Krabang                            840/1-2 Ladkrabang Road
+273  No 27-19-53,Durgaiah Street,Opposite Big Bazaa...  27-19-53,Durgaiah Street,Governor Pet Opp Big ...
+275                                      66 6th Avenue                                    66 Sixth Avenue
+276                                 Alfredo L Jones 37                               Alfredo L. Jones, 37
+277                                     8-9 Ekimae-Cho                                    Ekimae-cho 8-9 
+278                                  2571 Fisher Blvd.                              2571 Fisher Boulevard
+282                               NO.155 Fengshan Road                                  155 Fengshan Road
+283              Minuwangoda Road, Kotugoda,Katunayake                         Minuwangoda Road, Kotugoda
+285                                       Utorda Beach                                    Utorda, Salcete
+287  Hüseyinaga District.Kamerhatun Avenue No:22 Ba...  Hüseyinaga Mah.Kamerhatun Caddesi No:22 Balikp...
+289                             1200 N. Courthouse Rd.                         1200 North Courthouse Road
+291  Next to Wendell Rodericks,Opposite FLG Garden ...  House No 157, Campal Heritage Precint, Next to...
+292       153 Risdon Road, Newtown Bay Hobart Tasmania                                    153 Risdon Road
+293                                JL. Hang Tuah No.26                                Jl. Hangtuah No. 26
+295                   126 A Victoria Street Tararu Bay                               126A Victoria Street
+298                                     209 W. 9th St.                                209 West 9th Street
+300                                  1475 Garrett Road                                   1475 Garrett Rd 
+301                    lot 19 narpow point, teouma bay                  Lot 19, Narpow Point, Teouma Bay.
+302                93 Jianguo Road Tower C Wanda Plaza               Tower C Wanda Plaza, 93 Jianguo Road
+303                       150 - Duong Dinh Nghe Street                                   34 Ton Duc Thang
+304                  Mulavarickal (H), Mattoor, Kalady          Mulavarickal (house), Mattoor Kalady Post
+308      C/ Nicasio Calle 5 (Esquina Con Calle Larios)                                         Nicasio, 3
+309                                    379, V. E. Road                                       379 V.E ROAD
+311           229E,Srimath Cudarattwatta Mawatha,Kandy                           26/3, Sangamitta Mawatha
+312                                        Sitio Angol                   Angol, Manoc Manoc, Malay, Aklan
+313                                130 Tran Phu Street                                       130 Tran Phu
+314                        36/17 Sanath Perera Mawatha  36/16 Sanath Perera Mawatha, Thalpitiya South,...
+315  Room313, B1 South Tower, Fortune Apartment, NO...  No.313,South Tower B1,Fortune Apartment,No. 14...
+316  (Reception @ Flat E2-E4, 10/F, Block E) Flat E...  Flat E4, 10/F, Block E, Chungking Mansion, 36-...
+317  48, Volturno Street - Check-in at Independent ...  Via Volturno 40 (check-in takes place at Hotel...
+318          No.21,Middle Luoqiao Road,Xinluo District      21 Luoqiao Zhong Road Xinluo District Longyan
+319                            No. 128 Beihuanhai Road                           No.128 Bei Huan Hai Road
+320          No.328 Bao Feng 1st Road. Jian She Da Dao  No.328 Baofengyi Road, Jianshe Avenue, Qiaokou...
+321  No.18, Kyaik Khaunt Pagoda Road, Aung Chan Tha...  No. 18, Kyaik Khauk Pagoda Road, 100 Ton Rice ...
+323                 No.56, Gaota Rd, Yanqing District,                          No.56 Gaota Road, Yanqing
+324                              No.132 Meng Du Street    No. 132 Mengdu Street, Jianye District, Nanjing
+325                                        Fuqian Road  East gate of Suguo Supermarket,Fuqian Road,Qin...
+326  Ovacik Mh. D 100 Karayolu Uzeri Symbol AVM No ...  Ovacık Mah. D 100 Karayolu Uzerı Symbol AVM No...
+327  Hotel Vinayak, No - 61, Geetha Hall Rd, Gopala...                No - 61, Geetha Hall Rd, Gopalapur,
+328      NO.36, Xihu Road, Baolong Square 2nd Building       NO.2 building Baolong Square NO.36 Xihu road
+329                     Jl. Pangeran Diponegoro No.229                    Jl. Pangeran Diponegoro No. 229
+330   7969, Arakashan Road,Paharganj, New Delhi 110055  7969, Arakashan Road, Paharganj, New Delhi-110...
+331                             Lane.65 Huangyang Road                               No.65 Huangyang Road
+332  Opposite Vishal Mega Mart, Old Ranipur More, H...            Opp. Vishal Mega Mart, Old Ranipur More
+333                                  #306, Street No.9                              Street #9, Old Market
+334  770 Moo 6 Baan Sadoo Suwannasorn Rd. (Sai Kao)...   770 Baan Sradu Moo 6, T.Kabin Buri, Prachin Buri
+336                    13 Boyn Hill Avenue, Maidenhead                                13 Boyn Hill Avenue
+338                              Moo 2, Tambon Ao Nang           Moo 2 ,Tambon Ao Nang,Ampur Muang, Krabi
+340                     346 Lake Terrace, Two Mile Bay                                   346 Lake Terrace
+341                      531 GST Road St. Thomas Mount                     531 GST Road, St. Thomas Mount
+343                92-15,Takada-cho,Yamatokoriyama-shi                                   Takada-cho 92-15
+344             11-5, Nihombashi Tomizawa-cho, Chuo-ku               Chuo-ku Nihombashi Tomizawa-cho 11-5
+347                 988F, Group 50, Kbal Spean Village  998F, Group 50, Kbal Spean Village, Poipet Com...
+349                                   5500 Ne Loop 820                            5500 Northeast Loop 820
+350             2-21-14 Yanagibashi, Asakusa, Taito-ku                       Taito-ku Yanagibashi 2-21-14
+351                          2-20, Ueno, Toyokawa-city                                          Ueno 2-20
+353                                     86 Derb Hammam                                  86 Derb El Hammam
+354                                  Jalan Legian Kuta                  Legian St - Kuta Bali - Indonesia
+355                                           Duende 6                                          Duende, 6
+357  64/19 Xuan Dieu Street, 4 Ward, Tan Binh Distr...                                    64/19 Xuan Dieu
+358                                    Steindamm 24-26                                       Steindamm 24
+360                                   1625 Hwy 98 East                               1625 Highway 98 East
+361                   Lichstrasse 72 51373  LEVERKUSEN                                     Lichstrasse 72
+362                    Hira Street, Al Shatea District                  Heraa street , Al Shatea District
+363       34/2 moo 15 Sankhongnoi Rd., Robwiang, Muang           34/2 moo 15 Sankhongnoi Robwieng A.Muang
+364                               A-20, Kailash Colony  A-20, Kailash Colony, Near Kailash Colony Metr...
+365                                   Via Aurelia, 458                                    Via Aurelia 458
+366                             3700 S. Las Vegas Blvd                              3700 S Las Vegas Blvd
+367                                       Rossello 191                                      Rossello, 191
+368                                     Willemsparkweg                                 Willemsparkweg 205
+370                 152/1-11 M.11 T.Numprae A.Hangdong                152/1-11 Moo 11, Namprae, Chiangmai
+371  PO & Village RaghudevpurOpposite Raghudevpur G...  PO & Village Raghudevpur, Opp Raghudevpur Gram...
+372                              36 Quang Trung Street                 144 Tran Quoc Nghien, Hong Ha ward
+373                                 No.7 Chuangye Road     No.7 Chuangye Road, Liangcun Development Zone 
+374                             14/16 Rosensteinstraße                            Rosensteinstrasse 14-16
+375                      Karongwe Private Game Reserve         Karongwe Private Game Reserve, R36 Highway
+376                     24 Don Pedro Street Barangay 3  24 Don Pedro Street, Barangay Poblacion 3, Pal...
+377                                         Damai Lane                                   14590 Damai Lane
+378  NH-8 Parbatpura Bypass,New Birla City Water Pa...  PARBATPURA BY PASS N.H. 8,  NEAR BIRLA CITY WA...
+379                  304 Victoria Street, Darlinghurst                                304 Victoria Street
+381                           371 rue de la Republique                           371 rue de la République
+383                                14 Middleton Street                                    14 Middleton St
+386                           208 Jellicoe CresS.H. 25            208 Jellicoe Crescent,STATE HIGHWAY 25 
+389                        132 Khaosan Road, Phanakorn                         132 Khaosan Road Pranakorn
+391             333 Main Western Road, North Tamborine                              333 Main Western Road
+392                       2 Rua Dos Condes De Monsanto                       Rua Dos Condes De Monsanto 2
+393                     193 Porutota Road, Kochchikade                    193 Poruthota Road, Kochchikade
+394                 1-5, Heian-cho, Aizuwakamatsu-city                                    Heianmachi 1-15
+395                         No.193 Sheng He Third Road                           No.193 Sheng He San Road
+396                                        Wat Bo Road                    Wat Bo Street, Old Market Areas
+398       931/9 Soi Kaseamsaan 1, Rama 1 Rd. Pathumwan  931/9 Soi Kasemsun 1, Rama 1 Rd., Patumwan, Wu...
+399            Jl. Solo Tawangmangu Km. 34 Karanganyar           Jalan Raya Solo-Tawangmangu, Karanganyar
+400                             No. 3007, Hong Li Road                                  No.3007 Hongli Rd
+401         Jl. Raya Anyer Karang Bolong Km 145 Banten                               JL Raya Anyer KM 145
+402                        23 Tola, Group 4, Sangkat 4                                   Ochheuteal Beach
+403                               Hokujo 2443-1,Hakuba                                      Hokujo 2443-1
+406                            VILLA KISIRISIMEROVIGLI                                         Imerovigli
+407         Rue du Petit Barail-Centre Hotelier Du Lac       rue du Petit Barail - Centre Hotelier Du Lac
+408                 No. 1145 Yuehai Dong Road, Gongbei                          No.1145, Yuehai East Road
+409                              6826 Sunset Boulevard                         6826 West Sunset Boulevard
+410                         7 avenue Frederic Fabrege,                          7 Avenue Frederic Fabrege
+412       78/16-19 Soi NaNai 8, Phangmuang Sai Kor Rd.  78/16-19 Soi Na Nai 8 Phungmeaung Sai Kor Road...
+413   Al Rigga Street, Behind Commercial Bank Building  Al Rigga Street, Behind Commercial Bank Buildi...
+414                                       45, The Mall                                        45 The Mall
+415                                   Al Faisal Street                                 King Faisal Street
+417                           Kote Galli Beregaon Road  Next to Sai Mandir, Kote Galli,Near Shivsena O...
+418                                           Cedran 5                                          Cedran, 5
+419              Waweyaya, Yodakandiya, Tissamaharama.                         Yodakandiya  Tissamaharama
+420                                       191 Tonosawa                                       Tonosawa 191
+421           14-3A Santos St., Balibago, Angeles City  3-4 A. Santos St., Balibago, Angeles City, Pam...
+422                    Yarza Thingaha Road, Hotel Zone  Yarza Thingaha Road, Hotel Zone, Dekhina Thiri...
+423  Sahkulu Mahallesi, Kucuk Hendek Caddesi, No 16...  Sahkulu Mahallesi, Ilk Belediye Caddesi, No 39...
+424  No. 25, Old No. 17, American Colony Crescent R...  No.25, American Colony, Kumara Park East, Near...
+425                     350-E, Jalan Sultan Azlan Shah  350-E, Jalan Sultan Azlan Shah, Gelugor, Pulau...
+427                 Aluth Paara, Meegaswewa, Habarana.                                        Meegaswewa,
+428                         No.317, Renmin Road Middle           No.317, Ren Ming Zhong Road, Hu Men Town
+429  Jalan Danau Tamblingan No. 89M, Batujimbar, Sanur                     Jalan Danau Tamblingan No. 89M
+430                      1-23 Tsubaki-cho, Nakamura-ku                        Nakamura-ku Tsubakicho 1-23
+431                           Lot 60143, Jalan Penarak            Lot 60143 Jalan Kemajuan, Bukit Penarak
+432                                   Wongsiri RD 64/6                   64/7 Wongsiri Rd. Koh Mak Island
+433  235, 237, 239 Sathorn Tai Rd., Yannawa, Sathor...     235,237,239 Sathorn Tai Road, Yannawa, Sathorn
+434   15 J. Lorente corner Garcia Street, Capitol Site  15 J.Llorente and Garcia Street, Barangay Capi...
+435                       No.16-2 Taiyuan South Street                          16-2 South Taiyuan Street
+437                                 Via Luigi Alamanni                              Via Luigi Alamanni 37
+438                                   Panch Kund Road,  Choti Basti, Panchkund Road, Pushkar, Rajastha...
+440                        No.50 Ying Zhou Middle Road                         No.50 Middle Yingzhou Road
+441                                 Changpingshan Road  Opposite To ChangPing Garden, ChangPingShan Ro...
+442                                        Chobe River                 Plot 2239, Chobe River, PO Box 226
+444  XIV / 264, Chemppumpuram P.OAlleppey - 688505K...    XIV / 264, Chemppumpuram P.O, Alleppey - 688505
+445  Located in Orange Home's Syariah. Jl. Babakan ...                  Jl. Babakan Jeruk 1 No.76 Bandung
+446  Shuru Mandir Road, Shamlina Nagar Road, Near J...      Naggar Road Village Shaminala Shuru Jagatsukh
+447  38/12 Anuman Rachaton Soi ,Decho Rd.,Silom, Su...  38/12 Anuman Ratchaton, Silom, Suriyawong, Ban...
+448               2 Tran Hung Dao B Street, District 5                                   02 Tran Hung Dao
+449                        Windsor Road, Egham, Surrey                                       Windsor Road
+452                        Ammouthes-Koskinou Kalithea                         Faliraki - Kallithea beach
+453                              7320 E Camelback Road                           7320 East Camelback Road
+455                                 6600 S Tamiami Trl                           6600 South Tamiami Trail
+456        Kullu Manali National Highway, Chauri Bihal                              Manali District,Kullu
+457              Karagedik District 1112 Street 14/A-1     Karagedik Mah. 1112 Sok No 14 A-1 Calis Mevkii
+458          No. 80, Changbin Road, Chao Tian Men Port  No 80,Changbin Rd,Dock 11,ChaoTianMen,Yuzhong ...
+459                             Yunusemre Avenue No.95               Deliklitas Mah Yunus emre cad No:95 
+460                               Viale Trastevere 209                              Viale Trastevere 209 
+461                        No.28-29 hongcun Backstreet                 No.28-29 Back Street, Hong Village
+462              No 163,Sanya Bay Road . Hainan . P.R.                                  No.1603 Sanya Bay
+463                        610 Sec. 4 Taiwan Boulevard                     No. 610, Section4, Taiwan Blvd
+464                167 Hai Ba Trung Street, District 3                                   167 Hai Ba Trung
+466                       Cnr Princes and High Streets                          118 High St, Dunedin 9016
+467  Jl.Raya Puncak Km 90, PO Box - 18, Cianjur, Ci...                   Jl. Raya Puncak KM90 , PO BOX 18
+468   Jl. Pengayoman, Kompleks Pasar Segar, Blok E, 9B      Jl. Pengayoman Kompleks Pasar Segar Blok E.9B
+470                                2B Khu 9A, Bai Chay                                2A Khu 9B, Bai Chay
+471                         5760 I-55 NE Frontage Road         5760 Interstate 55 Northeast Frontage Road
+473                               130 Dizengoff Street                              130 Dizengoff Street 
+475                                   Argyll Road Dyce                                  Argyll Road, Dyce
+476         65 Moo 2 Rajapruk Rd. Bangkanoon Bangkruay         65 Ratchaphruek Rd. Bangkanoon, Bang Kruai
+477                                  Jalan Balai Subak                   Jalan Bale Subak No. 3X, Babakan
+478                       172 Richmond Road, Marleston                              172-176 Richmond Road
+479                                       5 The Marina                                      5 The Marina 
+480      Br. Bangkiang Sidem, Desa Keliki, Tegallalang  Jln Bangkiangsidem, Desa Keliki, Tegallalang, ...
+481                      Jl. Dewi Sartika No. 3, Tuban                             Jl. Dewi Sartika No. 3
+482                                        Velero, s/n                             Velero, s/n - Bolnuevo
+483                             11, Mitropoleos Street                                     Mitropoleos 11
+484                               21 Okeanidon Street,     21 Okeanidon Street, Agios Sostis, Syngrou Av.
+485                               No.965, Henggong Rd.                             No. 965, Henggong Road
+487     Main Street, Pollington, Goole, East Yorkshire                            Main Street, Pollington
+488                       H.No 552, Ashvem Mandrem Goa    Opp. Caju Varo, Ashwem Beach, Pernem, North Goa
+489       Rosario Street corner Gloria Street Balibago  Rosario Street Corner Gloria Street Balibago, ...
+490  Stand Street, Between 32nd and 33rd Street, Ch...  Strand Road, Between 32st & 33rd Street, Chan ...
+491                                  No.773, Minghu Rd                               No. 773, Minghu Road
+492          Kirinda-Sitthulpawwa Road, Rottawewa Lake                   Sithulpawwa, Yala, Tissamaharama
+493  58/1,East Coast Road,Muttukadu,Kanchipuram Dis...  58/1,Eastcoast Road,Muttukadu,Kanchipuram Dist...
+494            No.69,Yongchang Road,Chengguan District                             No. 69, Yongchang Road
+495                      Jl. Dago Golf 3 Cigadung Raya                 Jl. Dago Golf No. 3, Cigadung Raya
+497           Jalan Singaraja-Gilimanuk Bali Indonesia  Desa Sumberkima, Kecamatan Gerokgak, Kabupaten...
+498                                           Rue Davy                                       24, rue Davy
+-----
+Printing mismatches for keys:  ['p1.star_rating', 'p2.star_rating']  number of mismatches: 368
+     p1.star_rating  p2.star_rating
+2               2.0             0.0
+3               1.5             2.0
+4               2.5             4.0
+6               3.0             0.0
+7               1.5             1.0
+9               2.0             1.0
+10              2.5             3.0
+11              1.5             3.0
+15              3.0             0.0
+17              1.5             0.0
+19              2.0             0.0
+20              1.0             0.0
+24              3.0             4.0
+25              2.0             0.0
+30              3.0             0.0
+32              4.0             0.0
+42              3.5             4.0
+45              1.5             0.0
+51              1.0             2.0
+52              2.0             0.0
+53              2.0             1.0
+56              3.0             4.0
+59              3.5             0.0
+61              3.0             2.0
+68              3.0             0.0
+71              2.0             0.0
+76              2.0             0.0
+77              2.0             0.0
+79              1.0             0.0
+80              3.0             2.0
+83              4.0             0.0
+89              3.0             2.0
+90              4.0             3.0
+91              2.0             1.0
+98              1.0             2.0
+101             3.5             3.0
+110             1.0             2.0
+112             4.0             3.0
+115             3.0             2.0
+116             1.0             0.0
+117             3.5             3.0
+118             2.0             3.0
+121             2.0             0.0
+126             2.0             0.0
+130             3.0             0.0
+131             3.5             0.0
+133             2.0             0.0
+135             1.0             0.0
+136             2.0             0.0
+137             1.5             0.0
+138             4.0             3.0
+141             2.0             1.0
+142             3.0             0.0
+144             1.5             2.0
+147             3.5             3.0
+150             3.0             4.0
+152             2.0             0.0
+153             4.0             4.5
+154             3.0             2.0
+157             0.0             2.0
+158             1.0             2.0
+163             2.0             3.0
+168             3.0             2.0
+169             3.5             2.0
+171             1.5             0.0
+172             2.5             2.0
+176             3.5             0.0
+179             3.0             0.0
+182             3.0             0.0
+184             2.5             1.0
+185             1.0             0.0
+188             2.0             0.0
+189             4.0             0.0
+190             3.0             0.0
+191             2.0             3.0
+192             2.0             0.0
+193             3.0             0.0
+195             3.0             2.0
+196             3.0             0.0
+197             5.0             0.0
+198             2.0             3.0
+199             3.0             0.0
+201             2.5             3.0
+202             2.5             0.0
+205             2.5             2.0
+207             2.0             0.0
+209             4.0             3.0
+212             4.5             4.0
+213             2.5             2.0
+214             3.0             2.0
+223             2.5             3.0
+225             4.0             4.5
+228             1.5             2.0
+234             3.0             2.0
+235             5.0             4.0
+237             2.0             3.0
+244             4.0             3.0
+245             1.5             0.0
+249             4.0             5.0
+251             2.0             3.0
+253             2.5             0.0
+255             2.0             0.0
+257             1.0             0.0
+258             3.0             4.0
+259             1.5             0.0
+261             2.0             0.0
+263             2.5             3.0
+265             3.0             0.0
+266             2.0             0.0
+269             2.0             3.0
+271             4.0             3.0
+272             2.5             2.0
+279             2.5             2.0
+282             4.0             3.0
+291             1.0             0.0
+292             3.0             3.5
+295             3.0             4.0
+300             2.0             3.0
+305             3.5             4.0
+311             1.0             0.0
+314             3.0             0.0
+315             2.5             0.0
+325             2.0             3.0
+326             2.5             3.0
+327             3.0             0.0
+330             3.0             2.0
+334             1.5             0.0
+339             2.5             3.0
+344             2.5             2.0
+345             2.0             3.0
+350             1.5             1.0
+352             3.0             2.0
+366             4.0             3.0
+371             4.0             3.0
+372             3.0             2.0
+374             0.0             2.0
+388             2.5             3.0
+398             3.0             2.0
+399             4.0             3.0
+400             2.5             3.0
+401             5.0             4.0
+403             1.5             2.0
+406             2.0             0.0
+412             2.0             3.0
+419             3.0             0.0
+420             4.5             4.0
+424             2.5             0.0
+425             1.0             3.0
+427             2.0             0.0
+431             3.0             2.0
+432             2.5             0.0
+434             2.5             0.0
+435             2.0             0.0
+436             3.0             0.0
+438             2.0             3.0
+439             2.0             3.0
+442             4.0             0.0
+443             4.5             5.0
+444             2.5             0.0
+445             3.0             2.0
+446             3.0             0.0
+447             2.0             0.0
+450             1.0             3.0
+454             1.0             2.0
+455             3.0             2.0
+458             3.0             2.0
+462             4.0             0.0
+464             4.5             4.0
+465             2.5             3.0
+466             4.0             4.5
+467             4.0             3.0
+470             1.5             2.0
+476             4.0             3.0
+478             2.5             3.0
+480             5.0             4.0
+481             3.0             2.0
+485             3.5             0.0
+487             3.0             0.0
+488             3.0             0.0
+490             4.0             3.0
+492             3.0             0.0
+495             3.0             2.0
+496             1.0             0.0
+497             1.0             3.0
+-----
+Printing mismatches for keys:  ['p1.postal_code', 'p2.postal_code']  number of mismatches: 356
+    p1.postal_code p2.postal_code
+0              NaN          36113
+3              NaN         510420
+7          140-201        140-200
+12          528000         528061
+15             946            964
+21        SE10 9JW      SE10 9JW 
+25             NaN        LIMA 18
+26             NaN         100050
+29             NaN         200136
+32           21007          44170
+33            4558           4567
+34             NaN         610200
+48             NaN            970
+50           52000          51200
+52             NaN            NaN
+53             NaN        695-905
+55             NaN          12000
+57          230012         230000
+61           40045            400
+63            2039           2041
+64             NaN         430023
+65             NaN            NaN
+66            8041           8042
+69             NaN           9700
+70           22231            966
+71           50100          50220
+74           77110          77100
+77          541200         541000
+78         8740935       874-0935
+79             NaN            NaN
+84           81180          81000
+90             NaN        217-130
+93             NaN            NaN
+94         b49 6nr        B49 6NR
+96             NaN           3004
+101            NaN            NaN
+105            NaN          64200
+116        128              12711
+119            NaN         614200
+121          20150          20250
+122            NaN         518067
+125            NaN           1004
+128         255000         255302
+129            NaN         224000
+130            NaN            NaN
+132            NaN            NaN
+134         215002         215000
+136          10100          10450
+137            NaN           1000
+140            NaN           3330
+141            NaN           3500
+143            NaN         100020
+147           1600           1605
+148            NaN          95017
+149          84 62            NaN
+152            NaN            NaN
+154            NaN           2009
+157            NaN          24210
+158            NaN            NaN
+165            NaN          57601
+172           6000          60000
+173            NaN           H100
+174         115054         115184
+180            NaN            NaN
+181           1039            NaN
+188            NaN         518033
+192         541990         541900
+194            NaN            NaN
+196          77110          76120
+197            NaN            NaN
+203            NaN          11221
+206            NaN            NaN
+208       DK- 1577        DK-1577
+213            NaN          10100
+214     46385-6260          46385
+217            NaN           2780
+218           5212           5213
+219     36460-5639          36460
+224            NaN            NaN
+232            100              0
+235            NaN        232-711
+236            NaN          75017
+238           2020             50
+242     3951 PC112            113
+243            NaN            NaN
+250            NaN            NaN
+251          31000          31300
+252           6620           6625
+256            NaN         350008
+257            NaN            NaN
+261          26542            265
+264            NaN            NaN
+265            701            700
+269         423019         423109
+275           2029           2092
+283            NaN          11450
+284            NaN         753 40
+285            NaN         403713
+293            NaN          28884
+294            NaN            NaN
+295            NaN           3500
+300     71202-3909          71202
+301            NaN              0
+303            NaN            NaN
+313            NaN            NaN
+314            NaN          10718
+315         510160         510000
+316            NaN            NaN
+320         430034         430033
+321            NaN          11221
+324         210019         210005
+325         225508         225300
+326            NaN          41140
+329          59112          59111
+331         201206         200000
+333            NaN            NaN
+337            NaN            NaN
+341        600 016         600016
+342     92260-3803          92260
+343       639-1132        6391132
+347            NaN            NaN
+357          70000            NaN
+359          80361          80364
+365            184            165
+367           8034           8036
+369            NaN          20000
+371        711 322         711322
+372            NaN            NaN
+373            NaN          50200
+375            NaN           1380
+376            NaN           5316
+378         305002         305001
+379            NaN           2010
+384     70115-4690          70115
+389            NaN          10200
+393            NaN          11500
+396            NaN            NaN
+399          57131          57135
+400            NaN         518028
+401            NaN          42166
+402            NaN            NaN
+411          96738          96740
+413            NaN            NaN
+415           1946            NaN
+418          18001          18010
+419            NaN          82600
+420        2500315       250-0315
+421            NaN           2009
+426            NaN            NaN
+427            NaN          50150
+428         523903         523000
+434            NaN           6000
+435            NaN         110000
+439            NaN         110000
+442            NaN            NaN
+448            NaN            NaN
+450     35904-8239          35904
+453     85251-3404          85251
+455     34231-4832          34231
+461         245000         243100
+464          70000            NaN
+466            NaN           9054
+467            NaN          43253
+468            NaN          90143
+469     21901-1805          21901
+470            NaN            NaN
+473            NaN          64397
+474            NaN          95991
+477          80351          80361
+480            NaN          80561
+486           6227        6227 AH
+489           2009           2010
+490         263761          11221
+491            NaN            300
+492          82600          82000
+494         730030         730000
+495         410191          40191
+496            NaN            NaN
+-----
+
+Process finished with exit code 0
