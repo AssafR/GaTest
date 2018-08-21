@@ -3,7 +3,7 @@ import pandas as pd
 import random
 import itertools
 from match_utils import read_record_from_csv,sample_dataframe,clone_empty_frame,\
-    write_result_csv, calc_mapping_results,create_test_set_from_examples,calc_stats
+    write_result_csv, calc_mapping_results,create_test_set_from_examples,calc_stats,iterative_levenshtein
 
 
 def explore_examples_diff(df, print_values=False):
@@ -35,14 +35,19 @@ def create_random_mapping(true_mapping, percentage_size, percentage_wrong):
     return map_sample
 
 
-def create_mapping_by_grade(set_1, set_2, grading_function, threshold):
+def create_mapping_by_grade(set_1, set_2, grading_function, threshold, progress=False):
     grades = dict()
+    total = set_1.shape[0] * set_2.shape[0]
+    counter = 1
     for index1, row1 in set_1.iterrows():
         key = row1["p1.key"]
         for index2, row2 in set_2.iterrows():
             grade = grading_function(row1,row2)
             if (key not in grades) or (grades[key][0] < grade):
                 grades[key] = (grade, row2["p2.key"])
+                if progress:
+                    print("Calculating distance %d of %d" % (counter,total))
+                counter = counter + 1
 
     result = pd.DataFrame(columns = ["p1.key","p2.key"])
     res = {"p1.key": [], "p2.key": []}
@@ -66,6 +71,14 @@ def naive_grading_function(row1,row2):
         return 1
     return 0
 
+def new_grading_function(row1,row2):
+    l = max(len(row1["p1.hotel_name"]), len(row2["p2.hotel_name"]))
+    if row1["p1.hotel_name"].lower() == row2["p2.hotel_name"].lower():
+        return 1
+    return (l - iterative_levenshtein(row1["p1.hotel_name"].lower(),row2["p2.hotel_name"].lower()))/l;
+
+
+
 
 def main():
     resource_dir = "..\\Resources\\"
@@ -79,7 +92,7 @@ def main():
     #examples = sample_dataframe(examples,0.2)  # Work with sample for now
     # explore_examples_diff(examples, True)
     example_1, example_2 = create_test_set_from_examples(examples)
-    maps = create_mapping_by_grade(example_1,example_2,naive_grading_function,0.5)
+    maps = create_mapping_by_grade(example_1,example_2,new_grading_function,0.8, True)
     # combined_structure, unmapped_values = calc_mapping_results(example_1,example_2,maps)
 
 
