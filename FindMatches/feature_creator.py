@@ -1,24 +1,36 @@
+import re
+from functools import reduce
+import pandas as pd
+
+
 class FeatureCreator:
-    def __init__(self, key1, key2, row_1, row_2):
-        self.combined_key = key1 + "_" + key2
-        self.row1 = row_1
-        self.row2 = row_2
+    def __init__(self, set1, set2):
+        self.set_1 = set1
+        self.set_2 = set2
 
-    def create_features(set_1, set_2, progress=False):
-        field_names = ["hotel_name", "city_name"]
+    hotel_name_redundant_keywords = ['Hotel', 'Inn', 'The', '&', 'and', 'Suites', 'House', 'Villa', '-', 'and', 'Lodge',
+                                     'Apartments',
+                                     'Hostel', 'Boutique', 'Apartment', 'Motel', 'Guest', 'Guesthouse', 'by',
+                                     'Grand', 'Residence', 'Villas', 'Rooms', 'Breakfast']
+    hotel_name_redundant_keywords_lower = [word.lower() for word in hotel_name_redundant_keywords]
 
-        dicts = {key: None for key in field_names}
-        total = set_1.shape[0] * set_2.shape[0]
+    def create_features(self, progress=False):
+        field_names = ["hotel_name", "city_name", "postal_code", "hotel_address", "country_code"]
+
+        dicts = {key: None for key in field_names}  # Dictionary of results
+        methods = {field: getattr(self, "create_features_" + field, field) for field in field_names}  # Cache method
+        total = self.set_1.shape[0] * self.set_2.shape[0]
         counter = 1
-        for index1, row1 in set_1.iterrows():
+        for index1, row1 in self.set_1.iterrows():
             key1 = row1["p1.key"]
-            for index2, row2 in set_2.iterrows():
+            for index2, row2 in self.set_2.iterrows():
                 key2 = row2["p2.key"]
-                fc = FeatureCreator(key1, key2, row1, row2)
+                combined_key = key1 + "_" + key2
                 for field_name in field_names:
-                    method = getattr(fc, "create_features_" + field_name, dicts[field_name])
+                    method = methods[field_name]
                     if method:
-                        result = method(dicts[field_name], row1["p1." + field_name], row2["p2." + field_name])
+                        result = method(combined_key, dicts[field_name], row1["p1." + field_name],
+                                        row2["p2." + field_name])
                     else:
                         result = None
                     dicts[field_name] = result
@@ -29,32 +41,76 @@ class FeatureCreator:
 
         dataframes = list(map(lambda x: pd.DataFrame.from_dict(x).set_index("key"), dicts.values()))
         combined = reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), dataframes)
+
         return combined
 
-    def create_features_hotel_name(self, dic, val1, val2):
+    def create_features_hotel_name(self, combined_key, dic, val1, val2):
         """ dic - dictionary of key: [list of values] to be converted to DataFrame"""
-        my_keys = ["key", "hotel_distance", "hotel_length"]
-        if dic is None:
-            dic = {}
-        if not dic:
-            dic = {key: [] for key in my_keys}
-        feature_1 = self.string_distance(val1, val2)
-        feature_2 = max(len(val1), len(val2))
-        values = [self.combined_key, feature_1, feature_2]
-        for index, value in enumerate(my_keys):
+        columns = ["key", "hotel_distance", "hotel_number_of_same_words"]
+        dic = self.init_dict(columns, dic)
+        val1 = self.remove_redundant_words(val1)
+        val2 = self.remove_redundant_words(val2)
+        feature_1 = self.string_distance_normalized(val1, val2)
+
+        diffs = self.word_frequency_diffs(val1, val2)
+        values = [combined_key, feature_1, diffs]
+        for index, value in enumerate(columns):
             dic[value].append(values[index])
         return dic;
 
-    def create_features_city_name(self, dic, val1, val2):
-        my_keys = ["key", "city_name_distance", "city_name_length"]
-        if dic is None:
-            dic = {}
-        if not dic:
-            dic = {key: [] for key in my_keys}
-        feature_1 = self.string_distance(val1, val2)
-        feature_2 = max(len(val1), len(val2))
-        values = [self.combined_key, feature_1, feature_2]
-        for index, value in enumerate(my_keys):
+    def word_frequency_diffs(self, val1, val2):
+        words_1 = val1.split(" ")
+        words_2 = val2.split(" ")
+        words = words_1.copy()
+        words.extend(words_2)
+        dic_words = {word: 0 for word in words}
+        for word in words_1:
+            dic_words[word] = dic_words[word] + 1
+        for word in words_2:
+            dic_words[word] = dic_words[word] - 1
+        diffs = sum(dic_words.values())
+        return diffs
+
+    def create_features_country_code(self, combined_key, dic, val1, val2):
+        """ dic - dictionary of key: [list of values] to be converted to DataFrame"""
+        columns = ["key", "country_code_same"]
+        dic = self.init_dict(columns, dic)
+
+        res = 10
+        if not val1 or not val2:
+            res = 0
+        if val1 == val2:
+            res = 0
+
+        values = [combined_key, res]
+        for index, value in enumerate(columns):
+            dic[value].append(values[index])
+        return dic
+
+    def create_features_city_name(self, combined_key, dic, val1, val2):
+        columns = ["key", "city_name_distance"]
+        dic = self.init_dict(columns, dic)
+        feature_1 = self.string_distance_normalized(val1, val2)
+        values = [combined_key, feature_1]
+        for index, value in enumerate(columns):
+            dic[value].append(values[index])
+        return dic;
+
+    def create_features_postal_code(self, combined_key, dic, val1, val2):
+        columns = ["key", "postal_code_distance"]
+        dic = self.init_dict(columns, dic)
+        feature_1 = self.string_distance_normalized(val1, val2)
+        values = [combined_key, feature_1]
+        for index, value in enumerate(columns):
+            dic[value].append(values[index])
+        return dic;
+
+    def create_features_hotel_address(self, combined_key, dic, val1, val2):
+        columns = ["key", "hotel_address_distance"]
+        dic = self.init_dict(columns, dic)
+        feature_1 = self.string_distance_normalized(val1, val2)
+        values = [combined_key, feature_1]
+        for index, value in enumerate(columns):
             dic[value].append(values[index])
         return dic;
 
@@ -89,13 +145,26 @@ class FeatureCreator:
                 dist[row][col] = min(dist[row - 1][col] + 1,  # deletion
                                      dist[row][col - 1] + 1,  # insertion
                                      dist[row - 1][col - 1] + cost)  # substitution
-        # for r in range(rows):
-        #    print(dist[r])
+        return dist[rows - 1][cols - 1]
 
-        return dist[row][col]
-
-    def string_distance(self, str1, str2):
+    def string_distance_normalized(self, str1, str2):
+        if not str1 or not str2:
+            return 1
         if str1.lower() == str2.lower():
             return 0
         l = max(len(str1), len(str2))
         return self.iterative_levenshtein(str1.lower(), str2.lower()) / l;
+
+    def init_dict(self, columns, dic):
+        if dic is None:
+            dic = {}
+        if not dic:
+            dic = {key: [] for key in columns}
+        return dic
+
+    def remove_redundant_words(self, name):
+        for word in self.hotel_name_redundant_keywords_lower:
+            name = name.replace(word, "")
+        name = name.strip()
+        return name
+
