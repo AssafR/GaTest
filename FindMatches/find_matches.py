@@ -1,6 +1,8 @@
 import itertools
+import pickle
 from functools import reduce
 import pandas as pd
+import os.path
 import random
 
 from sklearn import ensemble
@@ -83,40 +85,110 @@ def main():
     resource_dir = "..\\Resources\\"
     mapping_file = resource_dir + "mappings.csv"
     mapping_differnce_file = resource_dir + "unmapped.csv"
+    test_mapping_file = resource_dir + "test_mapping.csv"
     test_tp_file = resource_dir + "test_map_tp.csv"
     test_fp_file = resource_dir + "test_map_fp.csv"
     test_fn_file = resource_dir + "test_map_fn.csv"
     test_p_file = resource_dir + "test_results_map.csv"
     test_unmapped_file = resource_dir + "test_results_unmapped.csv"
+    classifier_pickle_file = resource_dir + "classifier.pkl"
 
     tp_file = resource_dir + "map_tp.csv"
     fp_file = resource_dir + "map_fp.csv"
     fn_file = resource_dir + "map_fn.csv"
 
-    inputfile = resource_dir + "examples.csv"
+    input_examples_file = resource_dir + "examples.csv"
+    input_file_partner_1 = resource_dir + "Partner1.csv"
+    input_file_partner_2 = resource_dir + "Partner2.csv"
 
-    examples = read_record_from_csv(inputfile)
-    original_columns = examples.columns
-    examples['key'] = examples['p1.key'] + "_" + examples['p2.key']
-    examples.set_index('key', inplace=True)
-    true_mapping = examples[["p1.key", "p2.key"]]
 
-    # classifier = LinearRegression()
-    classifier = ensemble.GradientBoostingClassifier()
-    # classifier = MyClassifier()
 
+
+    if not os.path.isfile(classifier_pickle_file):
+        examples = read_record_from_csv(input_examples_file)
+        original_columns = examples.columns
+        examples['key'] = examples['p1.key'] + '_' + examples['p2.key']
+        examples.set_index('key', inplace=True)
+        true_mapping = examples[["p1.key", "p2.key"]]
+
+        extended_examples_by_country, source_examples_by_country = \
+            create_extended_examples_from_map_by_country(examples, true_mapping)
+
+        # classifier = LinearRegression()
+        # classifier = MyClassifier()
+        classifier = ensemble.GradientBoostingClassifier()
+        all_examples = pd.concat(extended_examples_by_country.values())
+        x_to_train = all_examples[all_examples.columns.difference(original_columns)]
+        x_to_train = x_to_train[x_to_train.columns.difference(['result'])]
+        y_train = all_examples['result']
+        classifier.fit(x_to_train, y_train)
+        pickle.dump(classifier, open(classifier_pickle_file, "wb"))
+
+        df_full_data_and_predictions, test_true_mapping = predict_matching_and_save_to_file(classifier,
+                                                                                            extended_examples_by_country,
+                                                                                            test_mapping_file, original_columns)
+
+        new_mapping = read_record_from_csv(test_mapping_file)
+        accuracy, coverage, (tp_mapping, fp_mapping, fn_mapping) = calc_stats(new_mapping, test_true_mapping)
+        unmapped_map = calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping)
+
+        example_1, example_2 = split_p1_p2_set_from_combined_examples(examples)
+
+        total_samples = sum(map(lambda x: x[1].shape[0], source_examples_by_country.items()))
+        true_positive_combined = calc_mapping_results(example_1, example_2, tp_mapping)
+        false_positive_combined = calc_mapping_results(example_1, example_2, fp_mapping)
+        false_negative_combined = calc_mapping_results(example_1, example_2, fn_mapping)
+        mapping_combined = calc_mapping_results(example_1, example_2, new_mapping)
+        unmapped_combined = calc_mapping_results(example_1, example_2, unmapped_map)
+
+        write_result_csv(true_positive_combined, test_tp_file)
+        write_result_csv(false_positive_combined, test_fp_file)
+        write_result_csv(false_negative_combined, test_fn_file)
+        write_result_csv(mapping_combined, test_p_file)
+        write_result_csv(unmapped_combined, test_unmapped_file)
+
+        print("Original test, Accuracy = %f, coverage=%f, total=%d, tp=%d, fp=%d, fn=%d" %
+              (accuracy, coverage, total_samples, tp_mapping.shape[0], fp_mapping.shape[0], fn_mapping.shape[0]))
+
+    df_1 = read_record_from_csv(input_file_partner_1)
+    df_2 = read_record_from_csv(input_file_partner_2)
+    len = min(df_1.shape[0],df_2.shape[0])
+    df_1 = df_1[1:len]
+    df_2 = df_2[1:len]
+    df = pd.concat([df_1,df_2], axis=1)
+    df['key'] = df['p1.key'] + '_' + df['p2.key']
+    df.set_index('key', inplace=True)
+    original_columns = df.columns
+
+    df['p1.country_code'] = df.apply(lambda row: str(row['p1.country_code']),axis=1)
+    df['p2.country_code'] = df.apply(lambda row: str(row['p2.country_code']),axis=1)
+
+    fict_mapping = df[["p1.key", "p2.key"]]
+
+    loaded_model = pickle.load(open(classifier_pickle_file, "rb"))
     extended_examples_by_country, source_examples_by_country = \
-        create_extended_examples_from_map_by_country(examples, true_mapping)
+        create_extended_examples_from_map_by_country(df, fict_mapping)
 
-    all_examples = pd.concat(extended_examples_by_country.values())
-    x_to_train = all_examples[all_examples.columns.difference(original_columns)]
-    x_to_train = x_to_train[x_to_train.columns.difference(['result'])]
-    y_train = all_examples['result']
-    classifier.fit(x_to_train, y_train)
+    df_full_data_and_predictions, test_true_mapping = predict_matching_and_save_to_file(loaded_model,
+                                                                                        extended_examples_by_country,
+                                                                                        mapping_file, original_columns)
 
+
+    new_mapping = read_record_from_csv(mapping_file)
+    unmapped_map = calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping)
+    example_1, example_2 = split_p1_p2_set_from_combined_examples(df)
+
+    total_samples = sum(map(lambda x: x[1].shape[0], source_examples_by_country.items()))
+    mapping_combined = calc_mapping_results(example_1, example_2, new_mapping)
+    unmapped_combined = calc_mapping_results(example_1, example_2, unmapped_map)
+
+    write_result_csv(mapping_combined, mapping_file)
+    write_result_csv(unmapped_combined, mapping_differnce_file)
+
+
+def predict_matching_and_save_to_file(classifier, extended_examples_by_country, mapping_file, original_columns):
     df_full_data_and_predictions, predictions_index = \
         run_classifier_on_extended_samples(classifier, extended_examples_by_country, original_columns)
-
     test_true_mapping = df_full_data_and_predictions.loc[df_full_data_and_predictions['result'] == 1] \
         [["p1.key", "p2.key"]].set_index('p1.key')
     test_map = pd.DataFrame(columns=['key', 'p1.key', 'p2.key'])
@@ -125,28 +197,7 @@ def main():
     split_index(test_map)
     test_map.reset_index()
     write_result_csv(test_map, mapping_file, False)
-
-    new_mapping = read_record_from_csv(mapping_file)
-    accuracy, coverage, (tp_mapping, fp_mapping, fn_mapping) = calc_stats(new_mapping, test_true_mapping)
-    unmapped_map = calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping)
-
-    example_1, example_2 = split_p1_p2_set_from_combined_examples(examples)
-
-    total_samples = sum(map(lambda x: x[1].shape[0], source_examples_by_country.items()))
-    true_positive_combined = calc_mapping_results(example_1, example_2, tp_mapping)
-    false_positive_combined = calc_mapping_results(example_1, example_2, fp_mapping)
-    false_negative_combined = calc_mapping_results(example_1, example_2, fn_mapping)
-    mapping_combined = calc_mapping_results(example_1, example_2, new_mapping)
-    unmapped_combined = calc_mapping_results(example_1, example_2, unmapped_map)
-
-    write_result_csv(true_positive_combined, test_tp_file)
-    write_result_csv(false_positive_combined, test_fp_file)
-    write_result_csv(false_negative_combined, test_fn_file)
-    write_result_csv(mapping_combined, test_p_file)
-    write_result_csv(unmapped_combined, test_unmapped_file)
-
-    print("Original test, Accuracy = %f, coverage=%f, total=%d, tp=%d, fp=%d, fn=%d" %
-          (accuracy, coverage, total_samples, tp_mapping.shape[0], fp_mapping.shape[0], fn_mapping.shape[0]))
+    return df_full_data_and_predictions, test_true_mapping
 
 
 def calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping):
@@ -258,7 +309,7 @@ def pick_predictions_from_results(test_results):
 
 def split_dataframe_by_country(examples):
     countries = sorted((examples['p1.country_code'].append(examples['p2.country_code'])).unique())
-    #countries = countries[0:9]  # ASSAF
+    # countries = countries[0:9]  # ASSAF
     examples_by_countries = {key:
                                  examples.loc[
                                      (examples['p1.country_code'] == key) & (examples['p2.country_code'] == key)]

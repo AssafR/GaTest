@@ -7,7 +7,8 @@ from match_utils import split_p1_p2_set_from_combined_examples
 
 class FeatureCreator:
     def __init__(self, examples):
-        self.set = examples
+        self.set_1, self.set_2 = split_p1_p2_set_from_combined_examples(examples)
+
 
     hotel_name_redundant_keywords = ['Hotel', 'Inn', 'The', ',', '-', '&', 'and', 'Suites', 'House', 'Villa', '-',
                                      'and', 'Lodge', 'Branch',
@@ -27,12 +28,11 @@ class FeatureCreator:
     field_names = ["hotel_name", "city_name", "postal_code", "hotel_address", "country_code"]
 
     def create_permutations_add_features(self, progress=False):
-        joined_frame = self.create_cartesian_set(self.set)
+        joined_frame = self.create_cartesian_set(self.set_1, self.set_2)
         combined = self.add_features_to_dataset(joined_frame, progress)
         return combined
 
-    def create_cartesian_set(self, set):
-        set_1, set_2 = split_p1_p2_set_from_combined_examples(set)
+    def create_cartesian_set(self, set_1,set_2):
         joined_frame = self.join_multiply_frames(set_1, set_2)
         joined_frame['key'] = joined_frame['p1.key'] + "_" + joined_frame['p2.key']
         joined_frame.set_index('key', inplace=True)
@@ -130,7 +130,10 @@ class FeatureCreator:
     def create_features_postal_code(self, combined_key, dic, val1, val2):
         columns = ["key", "postal_code_distance"]
         dic = self.init_dict(columns, dic)
-        feature_1 = self.string_distance_normalized(val1, val2)
+        if val1 is None or val2 is None:
+            feature_1 = 0
+        else:
+            feature_1 = self.string_distance_normalized(val1, val2)
         values = [combined_key, feature_1]
         for index, value in enumerate(columns):
             dic[value].append(values[index])
