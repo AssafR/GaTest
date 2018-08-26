@@ -15,6 +15,7 @@ from match_utils import read_record_from_csv, sample_dataframe, clone_empty_fram
     write_result_csv, calc_mapping_results, split_p1_p2_set_from_combined_examples, calc_stats, \
     add_item_to_dictionary_of_lists
 
+
 def create_mapping_by_grade(set_1, set_2, grading_function, threshold, progress=False):
     grades = dict()
     total = set_1.shape[0] * set_2.shape[0]
@@ -95,42 +96,31 @@ def main():
     fn_file = resource_dir + "map_fn.csv"
 
     examples = read_record_from_csv(resource_dir + "examples.csv")
+    original_columns = examples.columns
     examples['key'] = examples['p1.key'] + "_" + examples['p2.key']
     examples.set_index('key', inplace=True)
     true_mapping = examples[["p1.key", "p2.key"]]
 
-    sample_ratio = 0.5
+    sample_ratio = 0.1
     mapping_test = true_mapping.copy()
-    mapping_train = mapping_test.sample(frac=sample_ratio, random_state=200)
+    mapping_train = mapping_test.sample(frac=sample_ratio)
     mapping_test = mapping_test.drop(mapping_train.index)
 
     countries = sorted((examples['p1.country_code'].append(examples['p2.country_code'])).unique())
-    examples_by_countries = split_dataframe_by_country(countries, examples)
+    countries = ['AU', 'LA', 'RU']
+    examples_train = examples.loc[mapping_train.index]
+    examples_test = examples.loc[mapping_test.index]
 
     print("Sampling ", sample_ratio, " of original data")
+    features_train_total = add_features_columns(countries, examples_train, mapping_train)
+    features_train_total = add_features_columns(countries, examples_test, mapping_test)
 
-    example_left_by_country = {}
-    example_right_by_country = {}
-    features = []
-    # Split the samples by country, sample from each country
-    for country, country_samples in examples_by_countries.items():
-        left_row, right_row = sample_and_split(country_samples, sample_ratio)
-        preprocess_data(left_row, "p1")
-        preprocess_data(right_row, "p2")
-        if left_row is not None and right_row is not None:
-            new_features = create_features_from_data_and_mapping(left_row, right_row, true_mapping)
-            new_features['p1.country_code'] = country   # For later split
-            new_features['p2.country_code'] = country
-            features.append(new_features)
-            add_item_to_dictionary_of_lists(example_left_by_country, country, left_row)
-            add_item_to_dictionary_of_lists(example_right_by_country, country, right_row)
-
-    features_total = combine_dataframes(features)
-    percentage_test = 0.99
+    percentage_test = 0.8
     print("Split, test percentage is: ", percentage_test)
     x_train, x_test, y_train, y_test = create_test_train(features_total, percentage_test)
     x_to_train = x_train[x_train.columns.difference(['p2.country_code', 'country', 'p1.country_code'])]
     x_to_test = x_test[x_test.columns.difference(['p2.country_code', 'country', 'p1.country_code'])]
+    x_train = features_train_total.drop(original_columns, axis=1).drop(['result'], axis=1)
 
     # scaler = MinMaxScaler()
     # scaler.fit(x_to_train)
@@ -138,12 +128,11 @@ def main():
     x_y_test = x_test.copy()
     x_y_test['result'] = y_test
 
-
     # x_train = scaler.transform(x_train)
     # x_test = scaler.transform(x_test)
 
     classifier = LogisticRegression()
-    #classifier = ensemble.GradientBoostingClassifier()
+    # classifier = ensemble.GradientBoostingClassifier()
     classifier.fit(x_to_train, y_train)
 
     x_y_test_by_country = split_dataframe_by_country(countries, x_y_test)
@@ -196,7 +185,7 @@ def main():
 
     example_1, example_2 = split_p1_p2_set_from_combined_examples(examples)
 
-    true_positive_combined  = calc_mapping_results(example_1, example_2, true_positive)
+    true_positive_combined = calc_mapping_results(example_1, example_2, true_positive)
     false_positive_combined = calc_mapping_results(example_1, example_2, false_positive)
     false_negative_combined = calc_mapping_results(example_1, example_2, false_negative)
 
@@ -205,6 +194,20 @@ def main():
     write_result_csv(false_negative_combined, fn_file)
 
     print("Accuracy = %f, coverage=%f" % (accuracy, coverage))
+
+
+def add_features_columns(countries, examples_train, mapping_train):
+    examples_by_countries = split_dataframe_by_country(countries, examples_train)
+    features = []
+    # Split the samples by country, sample from each country
+    for country, country_samples in examples_by_countries.items():
+        print("Calculating for country: ", country)
+        preprocess_data(country_samples, "p1")
+        preprocess_data(country_samples, "p2")
+        new_features = create_features_from_data_and_mapping(country_samples, mapping_train)
+        features.append(new_features)
+    features_total = combine_dataframes(features)
+    return features_total
 
 
 def combine_dataframes(features):
@@ -242,8 +245,8 @@ def sample_and_split(examples, sample_ratio):
         return None, None
 
 
-def create_features_from_data_and_mapping(example_1, example_2, true_mapping):
-    fc = FeatureCreator(example_1, example_2)
+def create_features_from_data_and_mapping(examples, true_mapping):
+    fc = FeatureCreator(examples)
     features = fc.create_features(True)
     one_hot_encoding = create_one_hot_from_features_and_mapping(features, true_mapping)
     features = pd.merge(features, one_hot_encoding, left_index=True, right_index=True)

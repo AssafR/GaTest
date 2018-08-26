@@ -2,46 +2,64 @@ import re
 from functools import reduce
 import pandas as pd
 
+from match_utils import split_p1_p2_set_from_combined_examples
+
 
 class FeatureCreator:
-    def __init__(self, set1, set2):
-        self.set_1 = set1
-        self.set_2 = set2
+    def __init__(self, examples):
+        self.set = examples
 
     hotel_name_redundant_keywords = ['Hotel', 'Inn', 'The', '&', 'and', 'Suites', 'House', 'Villa', '-', 'and', 'Lodge',
-                                     'Apartments',
+                                     'Apartments', 'Luxury'
                                      'Hostel', 'Boutique', 'Apartment', 'Motel', 'Guest', 'Guesthouse', 'by',
                                      'Grand', 'Residence', 'Villas', 'Rooms', 'Breakfast']
     hotel_name_redundant_keywords_lower = [word.lower() for word in hotel_name_redundant_keywords]
 
+    def join_multiply_frames(self,df1,df2):
+        df1['tmp'] = 1
+        df2['tmp'] = 1
+
+        df = pd.merge(df1, df2, on=['tmp'])
+        df = df.drop('tmp', axis=1)
+        return df
+
+    field_names = ["hotel_name", "city_name", "postal_code", "hotel_address", "country_code"]
+
     def create_features(self, progress=False):
-        field_names = ["hotel_name", "city_name", "postal_code", "hotel_address", "country_code"]
 
-        dicts = {key: None for key in field_names}  # Dictionary of results
-        methods = {field: getattr(self, "create_features_" + field, field) for field in field_names}  # Cache method
-        total = self.set_1.shape[0] * self.set_2.shape[0]
+
+        set_1, set_2 = split_p1_p2_set_from_combined_examples(self.set)
+        joined_frame = self.join_multiply_frames(set_1,set_2)
+        joined_frame['key'] = joined_frame['p1.key'] + "_" + joined_frame['p2.key']
+        joined_frame.set_index('key', inplace=True)
+
+        combined = self.add_features_to_dataset(joined_frame, progress)
+        return combined
+
+    def add_features_to_dataset(self, dataset, progress):
+        total = dataset.shape[0]
+        methods = {field: getattr(self, "create_features_" + field, field) for field in self.field_names}  # Cache method
         counter = 1
-        for index1, row1 in self.set_1.iterrows():
-            key1 = row1["p1.key"]
-            for index2, row2 in self.set_2.iterrows():
-                key2 = row2["p2.key"]
-                combined_key = key1 + "_" + key2
-                for field_name in field_names:
-                    method = methods[field_name]
-                    if method:
-                        result = method(combined_key, dicts[field_name], row1["p1." + field_name],
-                                        row2["p2." + field_name])
-                    else:
-                        result = None
-                    dicts[field_name] = result
-
+        extra_features = pd.DataFrame(columns=['key'])
+        extra_features.set_index('key', inplace=True)
+        dicts = {key: None for key in self.field_names}  # Dictionary of results
+        for index, row in dataset.iterrows():
+            combined_key = index
+            for field_name in self.field_names:
+                method = methods[field_name]
+                if method:
+                    result = method(combined_key, dicts[field_name], row["p1." + field_name],
+                                    row["p2." + field_name])
+                else:
+                    result = None
+                dicts[field_name] = result
                 if progress:
-                    print("Calculating distance %d of %d" % (counter, total), end='\r')
-                counter = counter + 1
-
+                    print("  Calculating distance %d of %d" % (counter, total), end='\r')
+            counter = counter + 1
         dataframes = list(map(lambda x: pd.DataFrame.from_dict(x).set_index("key"), dicts.values()))
         combined = reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), dataframes)
-
+        combined = extra_features.append(combined)
+        combined = pd.merge(dataset, combined, left_index=True, right_index=True)
         return combined
 
     def create_features_hotel_name(self, combined_key, dic, val1, val2):
