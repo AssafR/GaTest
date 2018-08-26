@@ -8,6 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 from feature_creator import FeatureCreator
 from sklearn.linear_model import LogisticRegression, LinearRegression
+
+from my_classifier import MyClassifier
 from pre_processor import preprocess_data
 from sklearn.model_selection import train_test_split
 
@@ -43,16 +45,6 @@ def create_mapping_by_grade(set_1, set_2, grading_function, threshold, progress=
 
 def constant_grading_function(row1, row2):
     return 1;
-
-
-def random_grading_function(row1, row2):
-    return random.randint(1, 10000)
-
-
-def naive_grading_function(row1, row2):
-    if row1["p1.hotel_name"] == row2["p2.hotel_name"]:
-        return 0
-    return 1
 
 
 fields = ["hotel_name", "city_name", "country_code", "hotel_address", "star_rating", "postal_code"]
@@ -91,123 +83,145 @@ def main():
     resource_dir = "..\\Resources\\"
     mapping_file = resource_dir + "mappings.csv"
     mapping_differnce_file = resource_dir + "unmapped.csv"
+    test_tp_file = resource_dir + "test_map_tp.csv"
+    test_fp_file = resource_dir + "test_map_fp.csv"
+    test_fn_file = resource_dir + "test_map_fn.csv"
+    test_p_file = resource_dir + "test_results_map.csv"
+    test_unmapped_file = resource_dir + "test_results_unmapped.csv"
+
     tp_file = resource_dir + "map_tp.csv"
     fp_file = resource_dir + "map_fp.csv"
     fn_file = resource_dir + "map_fn.csv"
 
-    examples = read_record_from_csv(resource_dir + "examples.csv")
+    inputfile = resource_dir + "examples.csv"
+
+    examples = read_record_from_csv(inputfile)
     original_columns = examples.columns
     examples['key'] = examples['p1.key'] + "_" + examples['p2.key']
     examples.set_index('key', inplace=True)
     true_mapping = examples[["p1.key", "p2.key"]]
 
-    sample_ratio = 0.1
-    mapping_test = true_mapping.copy()
-    mapping_train = mapping_test.sample(frac=sample_ratio)
-    mapping_test = mapping_test.drop(mapping_train.index)
+    # classifier = LinearRegression()
+    classifier = ensemble.GradientBoostingClassifier()
+    # classifier = MyClassifier()
 
-    countries = sorted((examples['p1.country_code'].append(examples['p2.country_code'])).unique())
-    countries = ['AU', 'LA', 'RU']
-    examples_train = examples.loc[mapping_train.index]
-    examples_test = examples.loc[mapping_test.index]
+    extended_examples_by_country, source_examples_by_country = \
+        create_extended_examples_from_map_by_country(examples, true_mapping)
 
-    print("Sampling ", sample_ratio, " of original data")
-    features_train_total = add_features_columns(countries, examples_train, mapping_train)
-    features_train_total = add_features_columns(countries, examples_test, mapping_test)
-
-    percentage_test = 0.8
-    print("Split, test percentage is: ", percentage_test)
-    x_train, x_test, y_train, y_test = create_test_train(features_total, percentage_test)
-    x_to_train = x_train[x_train.columns.difference(['p2.country_code', 'country', 'p1.country_code'])]
-    x_to_test = x_test[x_test.columns.difference(['p2.country_code', 'country', 'p1.country_code'])]
-    x_train = features_train_total.drop(original_columns, axis=1).drop(['result'], axis=1)
-
-    # scaler = MinMaxScaler()
-    # scaler.fit(x_to_train)
-    # x_test[x_test.columns] = scaler.fit_transform(x_test[x_test.columns])
-    x_y_test = x_test.copy()
-    x_y_test['result'] = y_test
-
-    # x_train = scaler.transform(x_train)
-    # x_test = scaler.transform(x_test)
-
-    classifier = LogisticRegression()
-    # classifier = ensemble.GradientBoostingClassifier()
+    all_examples = pd.concat(extended_examples_by_country.values())
+    x_to_train = all_examples[all_examples.columns.difference(original_columns)]
+    x_to_train = x_to_train[x_to_train.columns.difference(['result'])]
+    y_train = all_examples['result']
     classifier.fit(x_to_train, y_train)
 
-    x_y_test_by_country = split_dataframe_by_country(countries, x_y_test)
-    results_by_country = {}
-    indexes_by_country = {}
-    for country, country_samples in x_y_test_by_country.items():
-        print("Predict for country: ", country)
-        x_test_country = country_samples[
-            country_samples.columns.difference(['p1.country_code', 'p2.country_code', 'result'])]
-        y_test_country = country_samples['result']
-        if x_test_country.shape[0] > 0:
-            country_predictions_index, country_test_results = predict_pick_store(classifier, x_test_country,
-                                                                                 y_test_country)
-            results_by_country[country] = country_test_results
-            indexes_by_country[country] = country_predictions_index
+    df_full_data_and_predictions, predictions_index = \
+        run_classifier_on_extended_samples(classifier, extended_examples_by_country, original_columns)
 
-    total_predictions = combine_dataframes(results_by_country.values())
-    predictions_index = list(itertools.chain.from_iterable(indexes_by_country.values()))
-
-    # test_results_and_original = pd.concat(
-    #     [examples.loc[x_test.index], test_results, features.loc[x_test.index]], axis=1)
-
-    # features['p1.key'] = features.apply(lambda row: row.name.split('_')[0], axis=1).set_index('p1.key')  # Can probably be a little more efficient
-
-    # prediction = features[['p1.key','p2.key']]
-
-    test_true_mapping = total_predictions.loc[total_predictions['result'] == 1][["p1.key", "p2.key"]].set_index(
-        'p1.key')
+    test_true_mapping = df_full_data_and_predictions.loc[df_full_data_and_predictions['result'] == 1] \
+        [["p1.key", "p2.key"]].set_index('p1.key')
     test_map = pd.DataFrame(columns=['key', 'p1.key', 'p2.key'])
     test_map['key'] = predictions_index
     test_map.set_index("key", inplace=True)
     split_index(test_map)
     test_map.reset_index()
-
-    # test_map = examples.loc[predictions_index][["p1.key", "p2.key"]].set_index('p1.key')
-
-    # predictions = [features.loc[features['p1.key'] == key]['prediction'].idxmax().split("_") for key in p1_keys]
-
-    # maps = create_mapping_by_grade(example_1, example_2, new_grading_function, 0.3, True)
-    # write_result_csv(maps, mapping_file)
     write_result_csv(test_map, mapping_file, False)
 
-    # combined_structure, unmapped_values = calc_mapping_results(example_1,example_2,maps)
-
-    # mapping = create_random_mapping(true_mapping, percentage_size=0.6, percentage_wrong=0.3)
-    # mapping.set_index("p1.key", inplace=True)
-
     new_mapping = read_record_from_csv(mapping_file)
-    accuracy, coverage, (true_positive, false_positive, false_negative) = calc_stats(new_mapping, test_true_mapping)
+    accuracy, coverage, (tp_mapping, fp_mapping, fn_mapping) = calc_stats(new_mapping, test_true_mapping)
+    unmapped_map = calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping)
 
     example_1, example_2 = split_p1_p2_set_from_combined_examples(examples)
 
-    true_positive_combined = calc_mapping_results(example_1, example_2, true_positive)
-    false_positive_combined = calc_mapping_results(example_1, example_2, false_positive)
-    false_negative_combined = calc_mapping_results(example_1, example_2, false_negative)
+    total_samples = sum(map(lambda x: x[1].shape[0], source_examples_by_country.items()))
+    true_positive_combined = calc_mapping_results(example_1, example_2, tp_mapping)
+    false_positive_combined = calc_mapping_results(example_1, example_2, fp_mapping)
+    false_negative_combined = calc_mapping_results(example_1, example_2, fn_mapping)
+    mapping_combined = calc_mapping_results(example_1, example_2, new_mapping)
+    unmapped_combined = calc_mapping_results(example_1, example_2, unmapped_map)
 
-    write_result_csv(true_positive_combined, tp_file)
-    write_result_csv(false_positive_combined, fp_file)
-    write_result_csv(false_negative_combined, fn_file)
+    write_result_csv(true_positive_combined, test_tp_file)
+    write_result_csv(false_positive_combined, test_fp_file)
+    write_result_csv(false_negative_combined, test_fn_file)
+    write_result_csv(mapping_combined, test_p_file)
+    write_result_csv(unmapped_combined, test_unmapped_file)
 
-    print("Accuracy = %f, coverage=%f" % (accuracy, coverage))
+    print("Original test, Accuracy = %f, coverage=%f, total=%d, tp=%d, fp=%d, fn=%d" %
+          (accuracy, coverage, total_samples, tp_mapping.shape[0], fp_mapping.shape[0], fn_mapping.shape[0]))
+
+
+def calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping):
+    all_p1_keys = set(df_full_data_and_predictions["p1.key"])
+    all_p2_keys = set(df_full_data_and_predictions["p2.key"])
+    all_p1_keys_mapped = set(new_mapping["p1.key"])
+    all_p2_keys_mapped = set(new_mapping["p2.key"])
+    unmapped_p1_keys = all_p1_keys.difference(all_p1_keys_mapped)
+    unmapped_p2_keys = all_p2_keys.difference(all_p2_keys_mapped)
+    unmapped_indexes = [p1 + "_" + p2 for p1 in unmapped_p1_keys for p2 in unmapped_p2_keys]
+    unmapped_map = pd.DataFrame(columns=['key', 'p1.key', 'p2.key'])
+    unmapped_map['key'] = unmapped_indexes
+    unmapped_map.set_index("key", inplace=True)
+    if unmapped_map.shape[0] > 0:
+        split_index(unmapped_map)
+    return unmapped_map
+
+
+def run_classifer_on_examples(examples, original_columns, classifier, true_mapping):
+    extended_examples_by_country, source_examples_by_country = \
+        create_extended_examples_from_map_by_country(examples, true_mapping)
+
+    df_full_data_and_predictions, predictions_index = \
+        run_classifier_on_extended_samples(classifier, extended_examples_by_country, original_columns)
+    return df_full_data_and_predictions, predictions_index, source_examples_by_country
+
+
+def create_extended_examples_from_map_by_country(examples, true_mapping=None):
+    source_examples_by_country = split_dataframe_by_country(examples)
+    extended_examples_by_country = {}
+    for country, country_samples in source_examples_by_country.items():  # All hotels in one country
+        fc = FeatureCreator(country_samples)
+        features = fc.create_permutations_add_features(True)
+        if true_mapping is not None:
+            x_y_test = create_features_from_data_and_mapping(features, true_mapping)
+        else:
+            x_y_test = features
+            x_y_test['result'] = 0
+        extended_examples_by_country[country] = x_y_test
+    return extended_examples_by_country, source_examples_by_country
+
+
+def run_classifier_on_extended_samples(classifier, extended_examples_by_country, original_columns):
+    results_by_country = {}
+    indexes_by_country = {}
+    for country, extended_country_samples in extended_examples_by_country.items():  # All hotels in one country
+        y_test_country = extended_country_samples['result']
+        x_test_country = extended_country_samples[extended_country_samples.columns.difference(original_columns)]
+        x_test_country = x_test_country[x_test_country.columns.difference(['result'])]
+        if x_test_country.shape[0] > 0:
+            country_predictions_index, country_test_results = \
+                predict_pick_store(classifier, x_test_country, y_test_country)
+            results_by_country[country] = country_test_results
+            indexes_by_country[country] = country_predictions_index
+    df_full_data_and_predictions = combine_dataframes(results_by_country.values())
+    predictions_index = list(itertools.chain.from_iterable(indexes_by_country.values()))
+    return df_full_data_and_predictions, predictions_index
 
 
 def add_features_columns(countries, examples_train, mapping_train):
     examples_by_countries = split_dataframe_by_country(countries, examples_train)
     features = []
     # Split the samples by country, sample from each country
-    for country, country_samples in examples_by_countries.items():
-        print("Calculating for country: ", country)
-        preprocess_data(country_samples, "p1")
-        preprocess_data(country_samples, "p2")
-        new_features = create_features_from_data_and_mapping(country_samples, mapping_train)
-        features.append(new_features)
-    features_total = combine_dataframes(features)
+    features_by_country = {country: preprocess_and_create_features(country_samples, mapping_train)
+                           for country, country_samples in examples_by_countries.items()}
+
+    features_total = combine_dataframes(features_by_country.values())
     return features_total
+
+
+def preprocess_and_create_features(country_samples, mapping_train):
+    preprocess_data(country_samples, "p1")
+    preprocess_data(country_samples, "p2")
+    new_features = create_features_from_data_and_mapping(country_samples, mapping_train)
+    return new_features
 
 
 def combine_dataframes(features):
@@ -221,13 +235,30 @@ def predict_pick_store(classifier, x_test, y_test):
     test_results['result'] = y_test
     test_results['prediction'] = predictions
     split_index(test_results)
-    p1_keys = test_results['p1.key'].unique()
-    predictions_index = [test_results.loc[test_results['p1.key'] == key]['prediction'].idxmax() for key in
-                         p1_keys]  # Pick up one mapping by "confidence"
+    predictions_index = pick_predictions_from_results(test_results)
     return predictions_index, test_results
 
 
-def split_dataframe_by_country(countries, examples):
+def pick_predictions_from_results(test_results):
+    prediction_threshold = 0.500001
+    test_results_sorted = test_results.sort_values(by=['prediction'], ascending=False)
+    p1_used = set([])
+    p2_used = set([])
+    predictions_index = []
+    for index, row in test_results_sorted.iterrows():
+        prediction = row['prediction']
+        if prediction < prediction_threshold:
+            break
+        if (row['p1.key'] not in p1_used and row['p2.key']) not in p2_used:
+            predictions_index.append(index)
+            p1_used.add(row['p1.key'])
+            p2_used.add(row['p2.key'])
+    return predictions_index
+
+
+def split_dataframe_by_country(examples):
+    countries = sorted((examples['p1.country_code'].append(examples['p2.country_code'])).unique())
+    #countries = countries[0:9]  # ASSAF
     examples_by_countries = {key:
                                  examples.loc[
                                      (examples['p1.country_code'] == key) & (examples['p2.country_code'] == key)]
@@ -245,9 +276,7 @@ def sample_and_split(examples, sample_ratio):
         return None, None
 
 
-def create_features_from_data_and_mapping(examples, true_mapping):
-    fc = FeatureCreator(examples)
-    features = fc.create_features(True)
+def create_features_from_data_and_mapping(features, true_mapping):
     one_hot_encoding = create_one_hot_from_features_and_mapping(features, true_mapping)
     features = pd.merge(features, one_hot_encoding, left_index=True, right_index=True)
     return features
