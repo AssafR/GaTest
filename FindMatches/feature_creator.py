@@ -6,8 +6,8 @@ from match_utils import split_p1_p2_set_from_combined_examples
 
 
 class FeatureCreator:
-    def __init__(self, examples):
-        self.set_1, self.set_2 = split_p1_p2_set_from_combined_examples(examples)
+    def __init__(self, set_1, set_2):
+        self.set_1, self.set_2 = set_1, set_2
 
 
     hotel_name_redundant_keywords = ['Hotel', 'Inn', 'The', ',', '-', '&', 'and', 'Suites', 'House', 'Villa', '-',

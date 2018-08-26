@@ -229,7 +229,13 @@ def create_extended_examples_from_map_by_country(examples, true_mapping=None):
     source_examples_by_country = split_dataframe_by_country(examples)
     extended_examples_by_country = {}
     for country, country_samples in source_examples_by_country.items():  # All hotels in one country
-        fc = FeatureCreator(country_samples)
+        print("Adding features to hotels from country", country)
+        #set_1, set_2 = split_p1_p2_set_from_combined_examples(country_samples)
+
+        set_1 = country_samples[0]
+        set_2 = country_samples[1]
+
+        fc = FeatureCreator(set_1, set_2)
         features = fc.create_permutations_add_features(True)
         if true_mapping is not None:
             x_y_test = create_features_from_data_and_mapping(features, true_mapping)
@@ -255,24 +261,6 @@ def run_classifier_on_extended_samples(classifier, extended_examples_by_country,
     df_full_data_and_predictions = combine_dataframes(results_by_country.values())
     predictions_index = list(itertools.chain.from_iterable(indexes_by_country.values()))
     return df_full_data_and_predictions, predictions_index
-
-
-def add_features_columns(countries, examples_train, mapping_train):
-    examples_by_countries = split_dataframe_by_country(countries, examples_train)
-    features = []
-    # Split the samples by country, sample from each country
-    features_by_country = {country: preprocess_and_create_features(country_samples, mapping_train)
-                           for country, country_samples in examples_by_countries.items()}
-
-    features_total = combine_dataframes(features_by_country.values())
-    return features_total
-
-
-def preprocess_and_create_features(country_samples, mapping_train):
-    preprocess_data(country_samples, "p1")
-    preprocess_data(country_samples, "p2")
-    new_features = create_features_from_data_and_mapping(country_samples, mapping_train)
-    return new_features
 
 
 def combine_dataframes(features):
@@ -310,9 +298,11 @@ def pick_predictions_from_results(test_results):
 def split_dataframe_by_country(examples):
     countries = sorted((examples['p1.country_code'].append(examples['p2.country_code'])).unique())
     # countries = countries[0:9]  # ASSAF
+    set_1, set_2 = split_p1_p2_set_from_combined_examples(examples)
+
     examples_by_countries = {key:
-                                 examples.loc[
-                                     (examples['p1.country_code'] == key) & (examples['p2.country_code'] == key)]
+                                 [set_1.loc[(set_1['p1.country_code'] == key)],
+                                  set_2.loc[(set_2['p2.country_code'] == key)]]
                              for key in countries}
     return examples_by_countries
 
