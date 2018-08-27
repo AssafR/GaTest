@@ -84,7 +84,8 @@ def split_index(features):
 def main():
     resource_dir = "..\\Resources\\"
     mapping_file = resource_dir + "mappings.csv"
-    mapping_differnce_file = resource_dir + "unmapped.csv"
+    mapping_difference_file = resource_dir + "unmapped.csv"
+    complete_features_file = resource_dir + "features_extended.csv"
     test_mapping_file = resource_dir + "test_mapping.csv"
     test_tp_file = resource_dir + "test_map_tp.csv"
     test_fp_file = resource_dir + "test_map_fp.csv"
@@ -169,6 +170,8 @@ def main():
     extended_examples_by_country, source_examples_by_country = \
         create_extended_examples_from_map_by_country(df, fict_mapping)
 
+    write_result_csv(extended_examples_by_country,complete_features_file)
+
     df_full_data_and_predictions, test_true_mapping = predict_matching_and_save_to_file(loaded_model,
                                                                                         extended_examples_by_country,
                                                                                         mapping_file, original_columns)
@@ -178,12 +181,12 @@ def main():
     unmapped_map = calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping)
     example_1, example_2 = split_p1_p2_set_from_combined_examples(df)
 
-    total_samples = sum(map(lambda x: x[1].shape[0], source_examples_by_country.items()))
+    #total_samples = sum(map(lambda x: x[1].shape[0], source_examples_by_country.items()))
     mapping_combined = calc_mapping_results(example_1, example_2, new_mapping)
     unmapped_combined = calc_mapping_results(example_1, example_2, unmapped_map)
 
     write_result_csv(mapping_combined, mapping_file)
-    write_result_csv(unmapped_combined, mapping_differnce_file)
+    write_result_csv(unmapped_combined, mapping_difference_file)
 
 
 def predict_matching_and_save_to_file(classifier, extended_examples_by_country, mapping_file, original_columns):
