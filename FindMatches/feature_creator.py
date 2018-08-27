@@ -65,13 +65,17 @@ class FeatureCreator:
                     print("  Calculating distance %d of %d" % (counter, total), end='\r')
             counter = counter + 1
         print()
-        dataframes = list(map(lambda x: pd.DataFrame.from_dict(x).set_index("key"), dicts.values()))
+        dicts_filter = [x for x in dicts.values() if x is not None and len(x)>0]
+        dataframes = list(map(lambda x: pd.DataFrame.from_dict(x).set_index("key"), dicts_filter))
 
-        # All created features in one dataframe
-        combined = reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), dataframes)
-        # Store in the new DataFrame
-        combined = new_features.append(combined)
-        combined = pd.merge(dataset, combined, left_index=True, right_index=True)
+        if len(dataframes) > 0:
+            # All created features in one dataframe
+            combined = reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), dataframes)
+            # Store in the new DataFrame
+            combined = new_features.append(combined)
+            combined = pd.merge(dataset, combined, left_index=True, right_index=True)
+        else:
+            combined = None
         return combined
 
     def create_features_hotel_name(self, combined_key, dic, val1, val2):

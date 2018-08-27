@@ -1,5 +1,6 @@
 import itertools
 import pickle
+from collections import Set
 from functools import reduce
 import pandas as pd
 import os.path
@@ -125,9 +126,10 @@ def main():
         classifier.fit(x_to_train, y_train)
         pickle.dump(classifier, open(classifier_pickle_file, "wb"))
 
-        df_full_data_and_predictions, test_true_mapping = predict_matching_and_save_to_file(classifier,
-                                                                                            extended_examples_by_country,
-                                                                                            test_mapping_file, original_columns)
+        df_full_data_and_predictions, test_true_mapping, test_map = predict_matching_calc_mapping(classifier,
+                                                                                                  extended_examples_by_country,
+                                                                                                  test_mapping_file, original_columns)
+        write_result_csv(test_map, mapping_file, False)
 
         new_mapping = read_record_from_csv(test_mapping_file)
         accuracy, coverage, (tp_mapping, fp_mapping, fn_mapping) = calc_stats(new_mapping, test_true_mapping)
@@ -153,9 +155,10 @@ def main():
 
     df_1 = read_record_from_csv(input_file_partner_1)
     df_2 = read_record_from_csv(input_file_partner_2)
-    len = min(df_1.shape[0],df_2.shape[0])
-    df_1 = df_1[1:len]
-    df_2 = df_2[1:len]
+    set_len = min(df_1.shape[0],df_2.shape[0])
+    #set_len = 100 # ASSAF
+    df_1 = df_1[1:set_len]
+    df_2 = df_2[1:set_len]
     df = pd.concat([df_1,df_2], axis=1)
     df['key'] = df['p1.key'] + '_' + df['p2.key']
     df.set_index('key', inplace=True)
@@ -166,16 +169,34 @@ def main():
 
     fict_mapping = df[["p1.key", "p2.key"]]
 
+    new_mapping = read_record_from_csv(mapping_file)
+    #print_redundant_keys('p1.key', new_mapping)
+
     loaded_model = pickle.load(open(classifier_pickle_file, "rb"))
-    extended_examples_by_country, source_examples_by_country = \
-        create_extended_examples_from_map_by_country(df, fict_mapping)
+    if not os.path.isfile("extended_examples.pkl"):
+        extended_examples_by_country, source_examples_by_country = \
+            create_extended_examples_from_map_by_country(df, None)
+    else:
+        extended_examples_by_country = pickle.load(open("extended_examples.pkl","rb"))
 
-    write_result_csv(extended_examples_by_country,complete_features_file)
+    #write_result_csv(extended_examples_by_country,complete_features_file)
 
-    df_full_data_and_predictions, test_true_mapping = predict_matching_and_save_to_file(loaded_model,
-                                                                                        extended_examples_by_country,
-                                                                                        mapping_file, original_columns)
+    for country1, examples1 in extended_examples_by_country.items():
+        for country2, examples2 in extended_examples_by_country.items():
+            if (country1==country2):
+                continue
+            keys_1 = set(examples1['p1.key'])
+            keys_2 = set(examples2['p1.key'])
+            intersect = keys_1.intersection(keys_2)
+            if (len(intersect)>0):
+                print("Countries [%s,%s], intersecting keys: %s",country1,country2,intersect)
+    print("Number of hotels per country:")
 
+
+    df_full_data_and_predictions, test_true_mapping,test_map = predict_matching_calc_mapping(loaded_model,
+                                                                                             extended_examples_by_country,
+                                                                                             mapping_file, original_columns)
+    write_result_csv(test_map, mapping_file, False)
 
     new_mapping = read_record_from_csv(mapping_file)
     unmapped_map = calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping)
@@ -189,7 +210,16 @@ def main():
     write_result_csv(unmapped_combined, mapping_difference_file)
 
 
-def predict_matching_and_save_to_file(classifier, extended_examples_by_country, mapping_file, original_columns):
+def print_redundant_keys(key, new_mapping):
+    dict_1 = {p1: 0 for p1 in new_mapping[key]}
+    for p1 in new_mapping["p1.key"]:
+        dict_1[p1] = dict_1[p1] + 1
+    for p1, value in dict_1.items():
+        if value > 1:
+            print("Key ", p1, " occurences ", value)
+
+
+def predict_matching_calc_mapping(classifier, extended_examples_by_country, mapping_file, original_columns):
     df_full_data_and_predictions, predictions_index = \
         run_classifier_on_extended_samples(classifier, extended_examples_by_country, original_columns)
     test_true_mapping = df_full_data_and_predictions.loc[df_full_data_and_predictions['result'] == 1] \
@@ -199,9 +229,7 @@ def predict_matching_and_save_to_file(classifier, extended_examples_by_country, 
     test_map.set_index("key", inplace=True)
     split_index(test_map)
     test_map.reset_index()
-    write_result_csv(test_map, mapping_file, False)
-    return df_full_data_and_predictions, test_true_mapping
-
+    return df_full_data_and_predictions, test_true_mapping, test_map
 
 def calc_map_of_all_unmapped_values(df_full_data_and_predictions, new_mapping):
     all_p1_keys = set(df_full_data_and_predictions["p1.key"])
@@ -229,7 +257,9 @@ def run_classifer_on_examples(examples, original_columns, classifier, true_mappi
 
 
 def create_extended_examples_from_map_by_country(examples, true_mapping=None):
-    source_examples_by_country = split_dataframe_by_country(examples)
+    set_1, set_2 = split_p1_p2_set_from_combined_examples(examples)
+    source_examples_by_country = split_dataframe_by_country(set_1, set_2)
+
     extended_examples_by_country = {}
     for country, country_samples in source_examples_by_country.items():  # All hotels in one country
         print("Adding features to hotels from country", country)
@@ -239,20 +269,26 @@ def create_extended_examples_from_map_by_country(examples, true_mapping=None):
         set_2 = country_samples[1]
 
         fc = FeatureCreator(set_1, set_2)
-        features = fc.create_permutations_add_features(True)
-        if true_mapping is not None:
-            x_y_test = create_features_from_data_and_mapping(features, true_mapping)
-        else:
-            x_y_test = features
-            x_y_test['result'] = 0
-        extended_examples_by_country[country] = x_y_test
+        joined_frame = fc.create_cartesian_set(set_1,set_2)
+        features = fc.add_features_to_dataset(joined_frame, True)
+        if features is not None:
+            if true_mapping is not None:
+                x_y_test = create_features_from_data_and_mapping(features, true_mapping)
+            else:
+                x_y_test = features
+                x_y_test['result'] = 0
+            extended_examples_by_country[country] = x_y_test
+
     return extended_examples_by_country, source_examples_by_country
 
 
 def run_classifier_on_extended_samples(classifier, extended_examples_by_country, original_columns):
     results_by_country = {}
     indexes_by_country = {}
+    count = 1
+    total = len(extended_examples_by_country.keys())
     for country, extended_country_samples in extended_examples_by_country.items():  # All hotels in one country
+        print("Running prediction on country %s , %d out of %d, %d samples" % (country,count,total, extended_country_samples.shape[0]))
         y_test_country = extended_country_samples['result']
         x_test_country = extended_country_samples[extended_country_samples.columns.difference(original_columns)]
         x_test_country = x_test_country[x_test_country.columns.difference(['result'])]
@@ -261,6 +297,8 @@ def run_classifier_on_extended_samples(classifier, extended_examples_by_country,
                 predict_pick_store(classifier, x_test_country, y_test_country)
             results_by_country[country] = country_test_results
             indexes_by_country[country] = country_predictions_index
+        count = count + 1
+
     df_full_data_and_predictions = combine_dataframes(results_by_country.values())
     predictions_index = list(itertools.chain.from_iterable(indexes_by_country.values()))
     return df_full_data_and_predictions, predictions_index
@@ -290,19 +328,18 @@ def pick_predictions_from_results(test_results):
     for index, row in test_results_sorted.iterrows():
         prediction = row['prediction']
         if prediction < prediction_threshold:
-            break
-        if (row['p1.key'] not in p1_used and row['p2.key']) not in p2_used:
-            predictions_index.append(index)
-            p1_used.add(row['p1.key'])
-            p2_used.add(row['p2.key'])
+            continue
+        if (row['p1.key'] in p1_used) or (row['p2.key'] in p2_used):
+            continue
+        predictions_index.append(index)
+        p1_used.add(row['p1.key'])
+        p2_used.add(row['p2.key'])
     return predictions_index
 
 
-def split_dataframe_by_country(examples):
-    countries = sorted((examples['p1.country_code'].append(examples['p2.country_code'])).unique())
+def split_dataframe_by_country(set_1, set_2 ):
+    countries = sorted((set_1['p1.country_code'].append(set_2['p2.country_code'])).unique())
     # countries = countries[0:9]  # ASSAF
-    set_1, set_2 = split_p1_p2_set_from_combined_examples(examples)
-
     examples_by_countries = {key:
                                  [set_1.loc[(set_1['p1.country_code'] == key)],
                                   set_2.loc[(set_2['p2.country_code'] == key)]]
